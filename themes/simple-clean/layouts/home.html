@@ -30,7 +30,8 @@
       
       <div class="hero-actions">
         <a href="/events" class="cta-primary">{{ .Site.Data.site.hero.cta_primary }}</a>
-        <a href="/faq" class="cta-secondary">{{ .Site.Data.site.hero.cta_secondary }}</a>
+        <a href="/events" class="cta-secondary">{{ .Site.Data.site.hero.cta_secondary }}</a>
+        <a href="/results" class="cta-tertiary">{{ .Site.Data.site.hero.cta_tertiary }}</a>
       </div>
     </div>
   </section>
@@ -143,56 +144,5 @@
       </div>
     </div>
   </section>
-
-  <!-- Community Section -->
-  <section class="community-highlight">
-    <div class="community-content">
-      <h2>{{ .Site.Data.site.community.title }}</h2>
-      <p>{{ .Site.Data.site.community.description }}</p>
-      
-      <div class="community-features">
-        {{ range .Site.Data.site.community.features }}
-        <div class="feature">
-          <span class="feature-icon">{{ .icon }}</span>
-          <span class="feature-text">{{ .text }}</span>
-        </div>
-        {{ end }}
-      </div>
-      
-      <div class="community-actions">
-        <a href="/about" class="about-link">Learn More About Us</a>
-        <a href="mailto:info@tctruns.com" class="contact-link">Get in Touch</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Recent Results (if available) -->
-  {{ $pastEvents := where $events "date" "lt" $now }}
-  {{ $recentPastEvents := first 3 (sort $pastEvents "date" "desc") }}
-  {{ if $recentPastEvents }}
-  <section class="recent-results">
-    <div class="section-header">
-      <h2>{{ .Site.Data.site.recent_results.title }}</h2>
-      <p>{{ .Site.Data.site.recent_results.subtitle }}</p>
-    </div>
-    
-    <div class="results-grid">
-      {{ range $recentPastEvents }}
-      <div class="result-card">
-        <h3>{{ .name }}</h3>
-        <div class="result-date">{{ dateFormat "January 2, 2006" .date }}</div>
-        <div class="result-actions">
-          {{ with .results_url }}
-          <a href="{{ . }}" target="_blank" class="results-btn">🏆 Results</a>
-          {{ end }}
-          {{ with .photos_url }}
-          <a href="{{ . }}" target="_blank" class="photos-btn">📸 Photos</a>
-          {{ end }}
-        </div>
-      </div>
-      {{ end }}
-    </div>
-  </section>
-  {{ end }}
 </div>
 {{ end }}

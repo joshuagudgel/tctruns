@@ -6,8 +6,9 @@ hero:
   description: "Join our community of trail runners exploring California's most scenic routes"
 
   # Call-to-action buttons
-  cta_primary: "View All Events"
-  cta_secondary: "FAQ"
+  cta_primary: "Register"
+  cta_secondary: "Browse Events"
+  cta_tertiary: "View Results"
 
   # Stats section (keeping "5K+ Runners Served" manageable)
   stats:
@@ -19,28 +20,8 @@ quick_links:
   title: "Quick Links"
   subtitle: "Everything you need to get started with TCTRuns"
 
-# Community section content
-community:
-  title: "Join the TCTRuns Community"
-  description: "More than just races - we're building a supportive community of runners at every level. From first-time 5K participants to seasoned marathoners, everyone has a place here."
-
-  features:
-    - icon: "🏆"
-      text: "All levels welcome"
-    - icon: "🎯"
-      text: "Professional timing"
-    - icon: "🎉"
-      text: "Post-race celebrations"
-    - icon: "💪"
-      text: "Training support"
-
 # Featured Events section
 featured_events:
   title: "Featured Upcoming Events"
   subtitle: "Don't miss these highlighted races - perfect for runners of all levels!"
   view_all_text: "View All Events →"
-
-# Recent Results section
-recent_results:
-  title: "Recent Race Results"
-  subtitle: "Check out results and photos from our latest events"
