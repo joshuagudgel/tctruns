@@ -4,96 +4,106 @@
 
 faqs:
   - category: "Registration"
-    question: "How do I register for a race?"
-    answer: "Registration is available online through our registration links on each event page. You can also register on race day if space is available, though we recommend pre-registration to guarantee your spot and save money."
+    question: "How many aid stations will there be and what kinds of food can I expect?"
+    answer: "There will always be AT LEAST one fully stocked aid station at all our races. We will always have water, Gatorade and soda in stock for you. We also stock up on chips, chocolates, candy, power bars, sandwiches, and fruit, while ensuring that vegetarian and vegan options are always available for our runners. \n\n We strongly encourage all longer distance runners with special dietary needs (or cravings such as potatoes, special branded supplements or hydration, PB&J, etc.) to prepare their own nutrition and place it in a drop bag that can be checked in with staff the morning of the race. These will be transported to/from aid stations by staff, accessible to runners during the race and available to pick up at the finish line. Please see our drop bags section below and additional information on each of our race pages."
     order: 1
 
   - category: "Registration"
-    question: "Can I get a refund if I can't make it to the race?"
-    answer: "Due to the costs involved in organizing races, we generally do not offer refunds. However, we may allow transfers to future events on a case-by-case basis. Please contact us at least 2 weeks before the event to discuss options."
+    question: "When and where can I pick up my race bib?"
+    answer: "Unless otherwise specified via email or our event race page, Bib Pick-up happens with registration on race morning, which opens an hour before race start."
     order: 2
 
   - category: "Registration"
-    question: "Can I change my race distance after registering?"
-    answer: "Distance changes may be possible up to 1 week before the event, subject to availability and any price differences. Contact us at info@tctruns.com to request a change."
+    question: "What happens if I hurt myself during the race?"
+    answer: "All races are staffed by at least one EMT. First Aid kits available at all stations."
     order: 3
 
   - category: "Race Day"
-    question: "What time should I arrive on race day?"
-    answer: "We recommend arriving 45-60 minutes before your race start time. This allows time for parking, packet pickup (if not done in advance), warming up, and getting to the start line."
+    question: "Where do I park my car?"
+    answer: "All races are conveniently located within a short walk from parking lots. We ensure that you don’t have to pay to park for the majority of our races, but please car pool if you can!"
     order: 1
 
   - category: "Race Day"
-    question: "What should I bring on race day?"
-    answer: "Bring a photo ID, comfortable running clothes and shoes, and any personal items you may need (water bottle, energy gels, etc.). We provide water stations along the course."
+    question: "What if I can’t make it to a race I signed up for?"
+    answer: "Send us an email at least 24 hours before the race’s scheduled start time and we can transfer your race registration to a future race of your choosing (some conditions may apply) for a distance equal to or shorter than the one you signed up for. \n\n No-shows and requests received within 24 hours of race start forfeit their registration fees, so please contact us at least 24 hours before the race to take advantage of our ‘most generous in the industry’ rollover policy."
     order: 2
 
   - category: "Race Day"
-    question: "Is there bag storage available?"
-    answer: "Yes, we provide secure bag storage near the start/finish line. Please don't bring valuables, as we cannot be responsible for lost or stolen items."
+    question: "Can I be refunded for a race if I don’t make it?"
+    answer: "Unfortunately no. All race registration sales are final. We are happy to accommodate a race transfer if you get in touch with us at least 24 hours beforehand, but we do not offer refunds, and we cannot transfer “no-shows” on race day."
     order: 3
 
   - category: "Race Day"
-    question: "What happens if there's bad weather?"
-    answer: "Races typically continue in light rain or cold weather. In case of severe weather (lightning, dangerous conditions), we may delay or cancel the event. Check our website and social media for updates."
+    question: "When will race results and photos of the race be posted?"
+    answer: "We aim to have all race results published to our website within 72 hours of the race finish. Often this occurs much sooner. You can find your results here. \n\n Please check our CrowdPic-linked race photos page here. Continue to check back within the week following the race as additional photos may continue to be added!"
     order: 4
 
   - category: "Course & Training"
-    question: "Are the courses certified?"
-    answer: "Our longer distance races (10K, Half Marathon) are USATF certified when possible. 5K courses are accurately measured but may not always be certified. Course maps and elevation profiles are available on each event page."
+    question: "Can I register for a race on the day of the race?"
+    answer: "Race day registration is available for an additional fee as indicated on each registration page. \n\n We accept Cash, check, or Credit Cards via Venmo on the morning of the race."
     order: 1
 
   - category: "Course & Training"
-    question: "How should I train for these races?"
-    answer: "Visit our training tips page for distance-specific training plans. We recommend gradually building up your mileage and including both easy runs and some faster-paced workouts in your training."
+    question: "Where can I find additional information for a race I am signed up to?"
+    answer: "Any updates to our races, such as cancellations or changes will be emailed to you via the email you signed up with and all information will be published to our Facebook Page and website."
     order: 2
 
   - category: "Course & Training"
-    question: "Are there aid stations on the course?"
-    answer: "Yes, we provide water stations approximately every 1.5-2 miles on longer courses, and typically one aid station on 5K courses. Sports drink is available on half marathon and longer events."
+    question: "Is there anything I should plan to bring with me on race day?"
+    answer: "Our aid stations are fully stocked with most everything you need. However, for our longer distances, we recommend that you bring a running pack/hydration backpack or water bottle(s) and at least one warm clothing item. Anything else you might like to bring is at your discretion. \n\n We do offer checked drop bag service and we strongly encourage all longer distance runners with special dietary needs to prepare their own nutrition and place it in a drop bag that can be checked in with staff the morning of the race. These will be transported to/from aid stations by staff, accessible to runners during the race and available to pick up at the finish line. Please see our drop bags section below and additional information on each of our race pages."
     order: 3
 
   - category: "Results & Awards"
-    question: "When will results be posted?"
-    answer: "Preliminary results are usually available within 30 minutes of the last finisher. Final results, including age group awards, are typically posted within 24 hours on our website."
+    question: "Does everyone receive a T-Shirt and Medal?"
+    answer: "All of our race participants will receive a medal at the finish line for their distance. Performance tech shirts with the Troy’s California Trail Runs logo are available for $15 at the time of your online registration and can be purchased on race day as well. Order ahead to guarantee we have your size."
     order: 1
 
-  - category: "Results & Awards"
-    question: "What awards are given?"
-    answer: "Awards vary by event but typically include overall male/female winners and age group awards (usually 5 or 10-year age groups). Specific award categories are listed on each event page."
-    order: 2
-
-  - category: "Results & Awards"
-    question: "Do I get a medal or t-shirt?"
-    answer: "Most of our races include a finisher medal and/or technical t-shirt in the registration fee. Check the individual event page for specific race swag details."
-    order: 3
-
-  - category: "General"
-    question: "Are these races suitable for beginners?"
-    answer: "Absolutely! We welcome runners and walkers of all experience levels. Our 5K events are particularly beginner-friendly, and we have generous time limits to ensure everyone can finish."
-    order: 1
-
-  - category: "General"
-    question: "Can I walk the race instead of running?"
-    answer: "Yes, walkers are welcome in all our events. We ask that walkers start toward the back of the pack to allow faster runners to start near the front."
-    order: 2
-
-  - category: "General"
-    question: "Is there a minimum age requirement?"
-    answer: "There's no minimum age, but participants under 18 must have a parent or guardian sign their waiver. We recommend that very young children participate in our shorter distance events."
-    order: 3
-
-  - category: "General"
-    question: "Are dogs allowed?"
-    answer: "Pets are not allowed on race courses for safety reasons, unless it's specifically noted as a dog-friendly event. Service animals are always permitted."
+  - category: "Course & Training"
+    question: "How are the races marked?"
+    answer: "All races are marked with ribbons and gypsum chalk. Full course maps, including elevation profiles, are available on our website for each race. Additionally, we present a trail briefing 15 minutes before the start of our races."
     order: 4
 
-  - category: "Volunteering"
-    question: "How can I volunteer at races?"
-    answer: "We're always looking for volunteers! Volunteer opportunities include packet pickup, water stations, course marshalling, and finish line assistance. Contact us at volunteer@tctruns.com or check our website for upcoming volunteer needs."
-    order: 1
+  - category: "Course & Training"
+    question: "How do you map your races?"
+    answer: "We use online software to map all of our races, and we also measure our courses when marking them in the days leading up to a race. Data on distances and elevation profiles on our site will not always be identical to the data you record on race day with your watches. We've seen up to 10% differences in some cases. This is because there is no universal algorithm used to calculate this information. We apologize for any inconvenience this may cause.\n\nIf you have any completed runs that you would like to share with us to improve our maps please email a link of your completed run or provide a GPX file to team@tctruns.com. Thank you for your contribution!"
+    order: 5
+
+  - category: "Course & Training"
+    question: "Can I wear headphones/earphones at your races?"
+    answer: "Yes, however, when you come into aid stations we recommend that you remove your listening devices so that we can communicate with you effectively. We also highly recommend being aware of your surroundings on the trails, which headphones/earphones might have an affect on."
+    order: 6
+
+  - category: "Course & Training"
+    question: "Are poles allowed at your races?"
+    answer: "Yes, they are allowed at all of our trail races."
+    order: 7
+
+  - category: "Registration"
+    question: "What is your cancellation policy?"
+    answer: "If an event is canceled by the Park Service Authority due to a natural disaster or bad weather, a property owner decides to cancel the event, or the race director needs to cancel for any other reason, your registration will be rolled over to another event. Due to the massive expense of putting on these events, it is not possible to issue refunds if we must cancel an event."
+    order: 4
+
+  - category: "Registration"
+    question: "Do you offer any discounts?"
+    answer: "Active Military & First Responders receive a 15% discount.\n\nFirst Responders include firefighters, law enforcement officers, paramedics, and emergency medical personnel.\n\nPlease email team@tctruns.com to process your military or first responders registration discount before registering."
+    order: 5
+
+  - category: "Race Day"
+    question: "What happens in case of inclement weather?"
+    answer: "All courses and distances are subject to change due to unforeseen circumstances, including weather. If this happens, we will do the best we can to keep the intended distances as close as possible on any new courses."
+    order: 5
+
+  - category: "Race Day"
+    question: "Will there be a photographer at your races?"
+    answer: "Yes! We love and appreciate our volunteer photographers, and make an effort to have at least one to capture the magic for each of our races. If you have any race day photos you'd like to share with us, please visit our Photos Page."
+    order: 6
+
+  - category: "Race Day"
+    question: "How does your drop bag service work?"
+    answer: "We strongly encourage all longer distance runners with special dietary needs (or cravings such as potatoes, special branded supplements or hydration, PB&J, etc.) to prepare their own nutrition and place it in a drop bag that can be checked in with staff the morning of the race. These will be transported to/from aid stations by staff, accessible to runners during the race and available to pick up at the finish line.\n\nThis included service is usually available for all runners attempting any distance longer than a half marathon, but varies at each race by terrain, staffing and aid station placements. Additional details that pertain to a specific race will be listed on that race's web page.\n\nWhile we always take great care to safeguard your belongings, we strongly encourage using a sturdy but disposable (if possible) bag and not checking any electronics or valuable items as we cannot be held liable for the contents. We have several runners at each race who simply forget to retrieve their drop bags at the finish and it creates extra work for everyone coordinating their returns. While we will make every attempt to return drop bags to the finish line prior to the runner finishing, they are subject to delay on occasion and we would not want anyone upset they are waiting for important items."
+    order: 7
 
   - category: "Volunteering"
-    question: "What do volunteers receive?"
-    answer: "Volunteers typically receive a volunteer t-shirt, food and drinks during their shift, and first priority registration for future events. It's a great way to give back to the running community!"
-    order: 2
+    question: "Can I volunteer for your races?"
+    answer: "Yes Please! Visit our Volunteers Page for more information."
+    order: 1
