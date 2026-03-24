@@ -1,27 +1,20 @@
 {{ define "main" }}
-{{ $eventSlug := .Params.slug | default (.File.BaseFileName) }}
+{{ $eventId := .Params.event_id }}
 {{ $events := .Site.Data.events.events }}
-{{ $event := index (where $events "name" $eventSlug) 0 }}
-
-{{ if not $event }}
-  {{ range $events }}
-    {{ $slugified := .name | urlize }}
-    {{ if eq $slugified $eventSlug }}
-      {{ $event = . }}
-    {{ end }}
-  {{ end }}
-{{ end }}
+{{ $event := index (where $events "id" $eventId) 0 }}
 
 {{ if $event }}
-<!-- Get the corresponding markdown content -->
-{{ $eventContent := .Site.GetPage (printf "/event-details/%s" $event.id) }}
 
 <article class="event-detail">
   <!-- Event Header -->
   <header class="event-header">
     <div class="event-meta">
       {{ partial "event-status.html" $event }}
-      <span class="event-distance">{{ range $i, $dist := $event.distances }}{{ if $i }}, {{ end }}{{ $dist.distance }}{{ end }}</span>
+      <div class="event-distances">
+        {{ range $i, $dist := $event.distances }}
+          {{ if $i }}, {{ end }}{{ $dist.distance }}
+        {{ end }}
+      </div>
     </div>
     <h1 class="event-title">{{ $event.name }}</h1>
     <div class="event-basics">
@@ -33,90 +26,126 @@
         <span class="location">📍 {{ $event.location }}</span>
       </div>
     </div>
+    
+    <!-- Registration Button -->
+    <div class="event-registration-cta">
+      {{ partial "registration-button.html" $event }}
+    </div>
   </header>
 
-  <!-- Registration Section -->
-  <section class="event-registration">
-    {{ partial "registration-button.html" $event }}
-    
+  <!-- Event Data Section -->
+  <section class="event-data">
+    <!-- Pricing Information -->
     {{ if $event.distances }}
-    <div class="pricing">
-      <h3>Registration Pricing</h3>
+    <div class="pricing-section">
+      <h2>Registration & Pricing</h2>
       <div class="pricing-table">
         {{ range $event.distances }}
         <div class="price-row">
-          <span class="distance-name">{{ .distance }}</span>
-          <div class="prices">
-            {{ if .early_bird_price }}
-            <span class="price early-bird">Early Bird: ${{ .early_bird_price }}</span>
-            {{ end }}
-            <span class="price regular">Regular: ${{ .regular_price }}</span>
-            {{ if .race_day_price }}
-            <span class="price race-day">Race Day: ${{ .race_day_price }}</span>
+          <div class="distance-info">
+            <span class="distance-name">{{ .distance }}</span>
+            {{ with .description }}
+            <p class="distance-description">{{ . }}</p>
             {{ end }}
           </div>
-          {{ with .description }}
-          <p class="distance-description">{{ . }}</p>
-          {{ end }}
+          <div class="price-info">
+            {{ if .early_bird_price }}
+            <div class="price early-bird">
+              <span class="label">Early Bird:</span>
+              <span class="amount">${{ .early_bird_price }}</span>
+            </div>
+            {{ end }}
+            <div class="price regular">
+              <span class="label">Regular:</span>
+              <span class="amount">${{ .regular_price }}</span>
+            </div>
+            {{ if .race_day_price }}
+            <div class="price race-day">
+              <span class="label">Race Day:</span>
+              <span class="amount">${{ .race_day_price }}</span>
+            </div>
+            {{ end }}
+          </div>
         </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <!-- Event Logistics -->
+    <div class="logistics-section">
+      <h2>Event Information</h2>
+      <div class="logistics-grid">
+        <div class="logistics-item">
+          <strong>Date & Time:</strong>
+          {{ dateFormat "Monday, January 2, 2006" $event.date }} at {{ $event.time }}
+        </div>
+        <div class="logistics-item">
+          <strong>Location:</strong>
+          {{ $event.location }}
+        </div>
+        {{ with $event.contact_email }}
+        <div class="logistics-item">
+          <strong>Contact:</strong>
+          <a href="mailto:{{ . }}">{{ . }}</a>
+        </div>
+        {{ end }}
+        {{ with $event.course_map_url }}
+        <div class="logistics-item">
+          <strong>Course Map:</strong>
+          <a href="{{ . }}" target="_blank">📄 View Course Map</a>
+        </div>
+        {{ end }}
+        {{ with $event.packet_pickup }}
+        <div class="logistics-item">
+          <strong>Packet Pickup:</strong>
+          {{ . }}
+        </div>
+        {{ end }}
+        {{ with $event.parking }}
+        <div class="logistics-item">
+          <strong>Parking:</strong>
+          {{ . }}
+        </div>
+        {{ end }}
+        {{ with $event.awards }}
+        <div class="logistics-item">
+          <strong>Awards:</strong>
+          {{ . }}
+        </div>
+        {{ end }}
+      </div>
+    </div>
+
+    <!-- Sponsors -->
+    {{ with $event.sponsors }}
+    <div class="sponsors-section">
+      <h2>Event Sponsors</h2>
+      <div class="sponsors-list">
+        {{ range . }}
+        <span class="sponsor-item">{{ . }}</span>
         {{ end }}
       </div>
     </div>
     {{ end }}
   </section>
 
-  <!-- Rich Content from Markdown -->
-  {{ with $eventContent }}
-  <section class="event-content-sections">
-    {{ .Content }}
+  <!-- Rich Content from Current Page -->
+  {{ with .Content }}
+  <section class="event-content">
+    <h2>Event Details</h2>
+    <div class="markdown-content">
+      {{ . }}
+    </div>
   </section>
   {{ end }}
 
-  <!-- Quick Details Grid -->
-  <section class="event-details">
-    <div class="details-grid">
-      
-      <!-- Quick Facts -->
-      <div class="detail-card">
-        <h3>Quick Facts</h3>
-        <ul>
-          <li><strong>Date:</strong> {{ dateFormat "Monday, Jan 2, 2006" $event.date }}</li>
-          <li><strong>Time:</strong> {{ $event.time }}</li>
-          <li><strong>Location:</strong> {{ $event.location }}</li>
-          {{ with $event.course_map_url }}
-          <li><a href="{{ . }}" target="_blank" class="course-link">📄 View Course Map</a></li>
-          {{ end }}
-        </ul>
-      </div>
-
-      <!-- Awards -->
-      {{ with $event.awards }}
-      <div class="detail-card">
-        <h3>Awards</h3>
-        <p>{{ . }}</p>
-      </div>
-      {{ end }}
-
-      <!-- Contact Information -->
-      <div class="detail-card">
-        <h3>Contact</h3>
-        <ul>
-          {{ with $event.contact_email }}
-          <li>📧 <a href="mailto:{{ . }}">{{ . }}</a></li>
-          {{ end }}
-          <li>📱 <a href="tel:+15551234567">(555) 123-4567</a></li>
-          <li>🌐 <a href="/faq">FAQ</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Results and Photos (for past events) -->
+  <!-- Results & Photos (for past events) -->
   {{ $now := now.Format "2006-01-02" }}
   {{ if lt $event.date $now }}
   <section class="event-results">
     <h2>Race Results & Photos</h2>
-    <div class="results-links">
+    <div class="results-actions">
       {{ with $event.results_url }}
       <a href="{{ . }}" target="_blank" class="results-btn">🏆 View Results</a>
       {{ end }}
@@ -127,51 +156,13 @@
   </section>
   {{ end }}
 
-  <!-- Sponsors -->
-  {{ with $event.sponsors }}
-  <section class="event-sponsors">
-    <h2>Event Sponsors</h2>
-    <div class="sponsors-list">
-      {{ range . }}
-      <div class="sponsor-item">{{ . }}</div>
-      {{ end }}
-    </div>
-    <p class="sponsor-cta">
-      <a href="/sponsors">Interested in sponsoring our events?</a>
-    </p>
-  </section>
-  {{ end }}
-
-  <!-- Call to Action -->
-  <section class="event-cta">
-    <div class="cta-card">
-      {{ if ge $event.date $now }}
-        {{ if eq $event.registration_status "open" }}
-        <h3>Ready to Race?</h3>
-        <p>Don't wait - register today and secure your spot!</p>
-        {{ partial "registration-button.html" $event }}
-        {{ else if eq $event.registration_status "coming-soon" }}
-        <h3>Registration Opening Soon!</h3>
-        <p>Check back soon for registration information.</p>
-        {{ else }}
-        <h3>Registration Closed</h3>
-        <p>Registration for this event has closed. Check out our other upcoming events!</p>
-        {{ end }}
-      {{ else }}
-        <h3>Event Complete</h3>
-        <p>Thanks to all participants! Check out our upcoming events.</p>
-      {{ end }}
-      <a href="/events" class="back-to-events">← Back to All Events</a>
-    </div>
-  </section>
 </article>
 
 {{ else }}
-<!-- Event not found -->
 <div class="event-not-found">
   <h1>Event Not Found</h1>
-  <p>Sorry, we couldn't find the event you're looking for.</p>
-  <a href="/events" class="back-to-events">← Back to All Events</a>
+  <p>Sorry, we couldn't find information for this event.</p>
+  <a href="/events" class="back-to-events">← Back to Events</a>
 </div>
 {{ end }}
 

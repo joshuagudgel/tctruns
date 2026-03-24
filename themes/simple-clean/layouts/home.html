@@ -69,16 +69,16 @@
           <span class="time">🕐 {{ $nextEvent.time }}</span>
           <span class="location">📍 {{ $nextEvent.location }}</span>
         </div>
-        {{ $eventContent := .Site.GetPage (printf "/event-details/%s" $nextEvent.id) }}
-        {{ with $eventContent }}
+        {{ $eventPage := .Site.GetPage (printf "/events/%s" $nextEvent.id) }}
+        {{ with $eventPage }}
         <p class="event-description">{{ .Summary | truncate 150 }}</p>
         {{ else }}
-        <p class="event-description">{{ index $nextEvent.distances 0 | .description }}</p>
+        <p class="event-description">{{ with (index $nextEvent.distances 0).description }}{{ . }}{{ else }}Join us for this exciting event!{{ end }}</p>
         {{ end }}
         
         <div class="spotlight-actions">
           {{ partial "registration-button.html" $nextEvent }}
-          <a href="/events/{{ $nextEvent.name | urlize }}/" class="learn-more">Learn More</a>
+          <a href="/events/{{ $nextEvent.id }}/" class="learn-more">Learn More</a>
         </div>
       </div>
       
