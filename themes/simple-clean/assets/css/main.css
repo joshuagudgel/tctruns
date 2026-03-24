@@ -7,13 +7,21 @@
 
 /* Base Styles */
 :root {
-  --primary-color: #2563eb;
-  --primary-dark: #1d4ed8;
-  --secondary-color: #f59e0b;
-  --accent-color: #10b981;
-  --danger-color: #ef4444;
-  --warning-color: #f59e0b;
-  --success-color: #10b981;
+  /* Brand Colors */
+  --color-green: #535D1E;
+  --color-red: #F21F25;
+  --color-tan: #BD904D;
+  --color-blue: #1975B4;
+  --color-white: #F6FFFD;
+  
+  /* Semantic Color Mapping */
+  --primary-color: var(--color-green);
+  --primary-dark: #424d17;
+  --secondary-color: var(--color-blue);
+  --accent-color: var(--color-tan);
+  --danger-color: var(--color-red);
+  --warning-color: var(--color-tan);
+  --success-color: var(--color-green);
   --gray-50: #f9fafb;
   --gray-100: #f3f4f6;
   --gray-200: #e5e7eb;
