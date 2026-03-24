@@ -13,6 +13,9 @@
 {{ end }}
 
 {{ if $event }}
+<!-- Get the corresponding markdown content -->
+{{ $eventContent := .Site.GetPage (printf "/event-details/%s" $event.id) }}
+
 <article class="event-detail">
   <!-- Event Header -->
   <header class="event-header">
@@ -62,58 +65,12 @@
     {{ end }}
   </section>
 
-  <!-- About This Event -->
-  {{ with $event.details.about_race }}
-  <section class="event-about">
-    <h2>About This Event</h2>
-    <div class="about-content">{{ . | markdownify }}</div>
+  <!-- Rich Content from Markdown -->
+  {{ with $eventContent }}
+  <section class="event-content-sections">
+    {{ .Content }}
   </section>
   {{ end }}
-
-  <!-- Course Information -->
-  {{ with $event.details.trail_notes }}
-  <section class="event-course">
-    <h2>Course Information</h2>
-    <div class="course-content">{{ . | markdownify }}</div>
-  </section>
-  {{ end }}
-
-  <!-- Registration Details -->
-  {{ with $event.details.registration_notes }}
-  <section class="event-registration-details">
-    <h2>Registration Details</h2>
-    <div class="registration-content">{{ . | markdownify }}</div>
-  </section>
-  {{ end }}
-
-  <!-- Race Day Logistics -->
-  <section class="event-logistics">
-    <h2>Race Day Logistics</h2>
-    <div class="logistics-tabs">
-      
-      {{ with $event.details.directions_notes }}
-      <div class="logistics-section">
-        <h3>Directions & Parking</h3>
-        <div class="directions-content">{{ . | markdownify }}</div>
-      </div>
-      {{ end }}
-
-      {{ with $event.details.drop_bag_notes }}
-      <div class="logistics-section">
-        <h3>Drop Bag Service</h3>
-        <div class="drop-bag-content">{{ . | markdownify }}</div>
-      </div>
-      {{ end }}
-
-      {{ with $event.details.support_crew_notes }}
-      <div class="logistics-section">
-        <h3>Spectator Information</h3>
-        <div class="spectator-content">{{ . | markdownify }}</div>
-      </div>
-      {{ end }}
-
-    </div>
-  </section>
 
   <!-- Quick Details Grid -->
   <section class="event-details">

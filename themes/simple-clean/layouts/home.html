@@ -69,7 +69,12 @@
           <span class="time">🕐 {{ $nextEvent.time }}</span>
           <span class="location">📍 {{ $nextEvent.location }}</span>
         </div>
-        <p class="event-description">{{ $nextEvent.details.about_race | truncate 150 }}</p>
+        {{ $eventContent := .Site.GetPage (printf "/event-details/%s" $nextEvent.id) }}
+        {{ with $eventContent }}
+        <p class="event-description">{{ .Summary | truncate 150 }}</p>
+        {{ else }}
+        <p class="event-description">{{ index $nextEvent.distances 0 | .description }}</p>
+        {{ end }}
         
         <div class="spotlight-actions">
           {{ partial "registration-button.html" $nextEvent }}
