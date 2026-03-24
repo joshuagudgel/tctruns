@@ -80,7 +80,23 @@ a:hover {
   color: white;
   text-align: center;
   padding: 4rem 2rem;
-  margin: -1rem -1rem 3rem;
+  /* Full width and height styles */
+  min-height: 85vh;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  margin-top: 0;
+  margin-bottom: 3rem;
+  /* Center content vertically */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 2rem;
 }
 
 .hero-title {
@@ -1210,6 +1226,11 @@ a:hover {
 @media (max-width: 768px) {
   .hero {
     padding: 2rem 1rem;
+    min-height: 80vh; /* Slightly smaller on mobile */
+  }
+  
+  .hero-content {
+    padding: 0 1rem;
   }
   
   .hero-title {
