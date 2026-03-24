@@ -4,7 +4,7 @@
   <section class="hero">
     <div class="hero-content">
       <h1 class="hero-title">{{ site.Title }}</h1>
-      <p class="hero-subtitle">Running Events That Inspire, Challenge, and Unite Our Community</p>
+      <p class="hero-subtitle">{{ .Site.Data.site.hero.tagline }}</p>
       
       <!-- Quick Stats -->
       {{ $events := .Site.Data.events.events }}
@@ -23,14 +23,14 @@
           <span class="stat-label">Total Events</span>
         </div>
         <div class="stat">
-          <span class="stat-number">5K+</span>
-          <span class="stat-label">Runners Served</span>
+          <span class="stat-number">{{ .Site.Data.site.hero.stats.runners_served_number }}</span>
+          <span class="stat-label">{{ .Site.Data.site.hero.stats.runners_served_label }}</span>
         </div>
       </div>
       
       <div class="hero-actions">
-        <a href="/events" class="cta-primary">View All Events</a>
-        <a href="/faq" class="cta-secondary">FAQ</a>
+        <a href="/events" class="cta-primary">{{ .Site.Data.site.hero.cta_primary }}</a>
+        <a href="/faq" class="cta-secondary">{{ .Site.Data.site.hero.cta_secondary }}</a>
       </div>
     </div>
   </section>
@@ -40,8 +40,8 @@
   {{ if $featuredEvents }}
   <section class="featured-events">
     <div class="section-header">
-      <h2>Featured Upcoming Events</h2>
-      <p>Don't miss these highlighted races - perfect for runners of all levels!</p>
+      <h2>{{ .Site.Data.site.featured_events.title }}</h2>
+      <p>{{ .Site.Data.site.featured_events.subtitle }}</p>
     </div>
     
     <div class="featured-events-grid">
@@ -51,7 +51,7 @@
     </div>
     
     <div class="section-footer">
-      <a href="/events" class="view-all-link">View All Events →</a>
+      <a href="/events" class="view-all-link">{{ .Site.Data.site.featured_events.view_all_text }}</a>
     </div>
   </section>
   {{ end }}
@@ -109,8 +109,8 @@
   <!-- Quick Links Section -->
   <section class="quick-links">
     <div class="section-header">
-      <h2>Quick Links</h2>
-      <p>Everything you need to get started with TCTRuns</p>
+      <h2>{{ .Site.Data.site.quick_links.title }}</h2>
+      <p>{{ .Site.Data.site.quick_links.subtitle }}</p>
     </div>
     
     <div class="quick-links-grid">
@@ -147,26 +147,16 @@
   <!-- Community Section -->
   <section class="community-highlight">
     <div class="community-content">
-      <h2>Join the TCTRuns Community</h2>
-      <p>More than just races - we're building a supportive community of runners at every level. From first-time 5K participants to seasoned marathoners, everyone has a place here.</p>
+      <h2>{{ .Site.Data.site.community.title }}</h2>
+      <p>{{ .Site.Data.site.community.description }}</p>
       
       <div class="community-features">
+        {{ range .Site.Data.site.community.features }}
         <div class="feature">
-          <span class="feature-icon">🏆</span>
-          <span class="feature-text">All levels welcome</span>
+          <span class="feature-icon">{{ .icon }}</span>
+          <span class="feature-text">{{ .text }}</span>
         </div>
-        <div class="feature">
-          <span class="feature-icon">🎯</span>
-          <span class="feature-text">Professional timing</span>
-        </div>
-        <div class="feature">
-          <span class="feature-icon">🎉</span>
-          <span class="feature-text">Post-race celebrations</span>
-        </div>
-        <div class="feature">
-          <span class="feature-icon">💪</span>
-          <span class="feature-text">Training support</span>
-        </div>
+        {{ end }}
       </div>
       
       <div class="community-actions">
@@ -182,8 +172,8 @@
   {{ if $recentPastEvents }}
   <section class="recent-results">
     <div class="section-header">
-      <h2>Recent Race Results</h2>
-      <p>Check out results and photos from our latest events</p>
+      <h2>{{ .Site.Data.site.recent_results.title }}</h2>
+      <p>{{ .Site.Data.site.recent_results.subtitle }}</p>
     </div>
     
     <div class="results-grid">
