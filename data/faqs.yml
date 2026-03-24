@@ -1,0 +1,99 @@
+# Frequently Asked Questions
+# This file contains all FAQ entries organized by category
+# Add new FAQs by following the format below
+
+faqs:
+  - category: "Registration"
+    question: "How do I register for a race?"
+    answer: "Registration is available online through our registration links on each event page. You can also register on race day if space is available, though we recommend pre-registration to guarantee your spot and save money."
+    order: 1
+
+  - category: "Registration"
+    question: "Can I get a refund if I can't make it to the race?"
+    answer: "Due to the costs involved in organizing races, we generally do not offer refunds. However, we may allow transfers to future events on a case-by-case basis. Please contact us at least 2 weeks before the event to discuss options."
+    order: 2
+
+  - category: "Registration"
+    question: "Can I change my race distance after registering?"
+    answer: "Distance changes may be possible up to 1 week before the event, subject to availability and any price differences. Contact us at info@tctruns.com to request a change."
+    order: 3
+
+  - category: "Race Day"
+    question: "What time should I arrive on race day?"
+    answer: "We recommend arriving 45-60 minutes before your race start time. This allows time for parking, packet pickup (if not done in advance), warming up, and getting to the start line."
+    order: 1
+
+  - category: "Race Day"
+    question: "What should I bring on race day?"
+    answer: "Bring a photo ID, comfortable running clothes and shoes, and any personal items you may need (water bottle, energy gels, etc.). We provide water stations along the course."
+    order: 2
+
+  - category: "Race Day"
+    question: "Is there bag storage available?"
+    answer: "Yes, we provide secure bag storage near the start/finish line. Please don't bring valuables, as we cannot be responsible for lost or stolen items."
+    order: 3
+
+  - category: "Race Day"
+    question: "What happens if there's bad weather?"
+    answer: "Races typically continue in light rain or cold weather. In case of severe weather (lightning, dangerous conditions), we may delay or cancel the event. Check our website and social media for updates."
+    order: 4
+
+  - category: "Course & Training"
+    question: "Are the courses certified?"
+    answer: "Our longer distance races (10K, Half Marathon) are USATF certified when possible. 5K courses are accurately measured but may not always be certified. Course maps and elevation profiles are available on each event page."
+    order: 1
+
+  - category: "Course & Training"
+    question: "How should I train for these races?"
+    answer: "Visit our training tips page for distance-specific training plans. We recommend gradually building up your mileage and including both easy runs and some faster-paced workouts in your training."
+    order: 2
+
+  - category: "Course & Training"
+    question: "Are there aid stations on the course?"
+    answer: "Yes, we provide water stations approximately every 1.5-2 miles on longer courses, and typically one aid station on 5K courses. Sports drink is available on half marathon and longer events."
+    order: 3
+
+  - category: "Results & Awards"
+    question: "When will results be posted?"
+    answer: "Preliminary results are usually available within 30 minutes of the last finisher. Final results, including age group awards, are typically posted within 24 hours on our website."
+    order: 1
+
+  - category: "Results & Awards"
+    question: "What awards are given?"
+    answer: "Awards vary by event but typically include overall male/female winners and age group awards (usually 5 or 10-year age groups). Specific award categories are listed on each event page."
+    order: 2
+
+  - category: "Results & Awards"
+    question: "Do I get a medal or t-shirt?"
+    answer: "Most of our races include a finisher medal and/or technical t-shirt in the registration fee. Check the individual event page for specific race swag details."
+    order: 3
+
+  - category: "General"
+    question: "Are these races suitable for beginners?"
+    answer: "Absolutely! We welcome runners and walkers of all experience levels. Our 5K events are particularly beginner-friendly, and we have generous time limits to ensure everyone can finish."
+    order: 1
+
+  - category: "General"
+    question: "Can I walk the race instead of running?"
+    answer: "Yes, walkers are welcome in all our events. We ask that walkers start toward the back of the pack to allow faster runners to start near the front."
+    order: 2
+
+  - category: "General"
+    question: "Is there a minimum age requirement?"
+    answer: "There's no minimum age, but participants under 18 must have a parent or guardian sign their waiver. We recommend that very young children participate in our shorter distance events."
+    order: 3
+
+  - category: "General"
+    question: "Are dogs allowed?"
+    answer: "Pets are not allowed on race courses for safety reasons, unless it's specifically noted as a dog-friendly event. Service animals are always permitted."
+    order: 4
+
+  - category: "Volunteering"
+    question: "How can I volunteer at races?"
+    answer: "We're always looking for volunteers! Volunteer opportunities include packet pickup, water stations, course marshalling, and finish line assistance. Contact us at volunteer@tctruns.com or check our website for upcoming volunteer needs."
+    order: 1
+
+  - category: "Volunteering"
+    question: "What do volunteers receive?"
+    answer: "Volunteers typically receive a volunteer t-shirt, food and drinks during their shift, and first priority registration for future events. It's a great way to give back to the running community!"
+    order: 2

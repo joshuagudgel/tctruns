@@ -1,0 +1,33 @@
+<!-- FAQ Item Partial -->
+<div class="faq-item" data-category="{{ .category | lower | urlize }}">
+  <div class="faq-question" onclick="toggleFaqAnswer(this)">
+    <h3 class="question-text">{{ .question }}</h3>
+    <span class="toggle-icon">▼</span>
+  </div>
+  
+  <div class="faq-answer">
+    <div class="answer-content">
+      {{ .answer | markdownify }}
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleFaqAnswer(questionElement) {
+  const faqItem = questionElement.parentElement;
+  const answer = faqItem.querySelector('.faq-answer');
+  const icon = questionElement.querySelector('.toggle-icon');
+  
+  // Toggle active state
+  faqItem.classList.toggle('active');
+  
+  // Update icon
+  if (faqItem.classList.contains('active')) {
+    icon.textContent = '▲';
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  } else {
+    icon.textContent = '▼';
+    answer.style.maxHeight = '0';
+  }
+}
+</script>

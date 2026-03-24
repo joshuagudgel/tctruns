@@ -1,0 +1,74 @@
+<!-- Registration Button Partial -->
+{{ $now := now.Format "2006-01-02" }}
+{{ $isPast := lt .date $now }}
+
+<div class="registration-button-container">
+  {{ if $isPast }}
+    <!-- Past event - no registration -->
+    <div class="registration-closed past">
+      <span class="status-text">Event Complete</span>
+    </div>
+  {{ else if eq .registration_status "open" }}
+    <!-- Registration is open -->
+    {{ with .registration_url }}
+    <a href="{{ . }}" 
+       target="_blank" 
+       class="registration-button open"
+       onclick="trackRegistrationClick('{{ $.name }}')">
+      <span class="button-text">Register Now</span>
+      <span class="button-icon">💳</span>
+    </a>
+    {{ else }}
+    <div class="registration-button disabled">
+      <span class="button-text">Registration Link Coming Soon</span>
+      <span class="button-icon">⏳</span>
+    </div>
+    {{ end }}
+  {{ else if eq .registration_status "coming-soon" }}
+    <!-- Registration coming soon -->
+    <div class="registration-button coming-soon">
+      <span class="button-text">Registration Opens Soon</span>
+      <span class="button-icon">🔜</span>
+    </div>
+  {{ else if eq .registration_status "closed" }}
+    <!-- Registration closed -->
+    <div class="registration-button closed">
+      <span class="button-text">Registration Closed</span>
+      <span class="button-icon">🚫</span>
+    </div>
+  {{ else }}
+    <!-- Fallback for undefined status -->
+    <div class="registration-button unknown">
+      <span class="button-text">Check Back Soon</span>
+      <span class="button-icon">❓</span>
+    </div>
+  {{ end }}
+  
+  <!-- Additional info for non-open registrations -->
+  {{ if and (ne .registration_status "open") (not $isPast) }}
+  <div class="registration-info">
+    {{ if eq .registration_status "coming-soon" }}
+    <p class="info-text">Registration details will be available soon. Check back or follow us on social media for updates!</p>
+    {{ else if eq .registration_status "closed" }}
+    <p class="info-text">Registration has closed for this event. Contact us for waitlist information.</p>
+    {{ end }}
+  </div>
+  {{ end }}
+</div>
+
+<!-- Analytics tracking script -->
+<script>
+function trackRegistrationClick(eventName) {
+  // Google Analytics tracking (if implemented)
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'registration_click', {
+      'event_category': 'race_registration',
+      'event_label': eventName,
+      'value': 1
+    });
+  }
+  
+  // Alternative analytics tracking
+  console.log('Registration clicked for:', eventName);
+}
+</script>

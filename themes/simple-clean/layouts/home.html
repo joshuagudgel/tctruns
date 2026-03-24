@@ -1,9 +1,207 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <section>
-      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-      {{ .Summary }}
-    </section>
+<div class="homepage">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">{{ site.Title }}</h1>
+      <p class="hero-subtitle">Running Events That Inspire, Challenge, and Unite Our Community</p>
+      {{ with .Content }}
+      <div class="hero-description">
+        {{ . }}
+      </div>
+      {{ end }}
+      
+      <!-- Quick Stats -->
+      {{ $events := .Site.Data.events.events }}
+      {{ $now := now.Format "2006-01-02" }}
+      {{ $upcomingEvents := where $events "date" "ge" $now }}
+      {{ $totalEvents := len $events }}
+      {{ $upcomingCount := len $upcomingEvents }}
+      
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">{{ $upcomingCount }}</span>
+          <span class="stat-label">Upcoming Events</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">{{ $totalEvents }}+</span>
+          <span class="stat-label">Total Events</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">5K+</span>
+          <span class="stat-label">Runners Served</span>
+        </div>
+      </div>
+      
+      <div class="hero-actions">
+        <a href="/events" class="cta-primary">View All Events</a>
+        <a href="/faq" class="cta-secondary">FAQ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Events -->
+  {{ $featuredEvents := where $upcomingEvents "featured" true }}
+  {{ if $featuredEvents }}
+  <section class="featured-events">
+    <div class="section-header">
+      <h2>Featured Upcoming Events</h2>
+      <p>Don't miss these highlighted races - perfect for runners of all levels!</p>
+    </div>
+    
+    <div class="featured-events-grid">
+      {{ range first 3 (sort $featuredEvents "date") }}
+        {{ partial "event-card.html" . }}
+      {{ end }}
+    </div>
+    
+    <div class="section-footer">
+      <a href="/events" class="view-all-link">View All Events →</a>
+    </div>
+  </section>
   {{ end }}
+
+  <!-- Next Event Spotlight -->
+  {{ $nextEvent := index (sort $upcomingEvents "date") 0 }}
+  {{ if $nextEvent }}
+  <section class="next-event-spotlight">
+    <div class="spotlight-content">
+      <div class="spotlight-text">
+        <h2>Next Race Coming Up</h2>
+        <h3>{{ $nextEvent.name }}</h3>
+        <div class="event-quick-info">
+          <span class="date">📅 {{ dateFormat "Monday, Jan 2, 2006" $nextEvent.date }}</span>
+          <span class="time">🕐 {{ $nextEvent.time }}</span>
+          <span class="location">📍 {{ $nextEvent.location }}</span>
+        </div>
+        <p class="event-description">{{ $nextEvent.description | truncate 150 }}</p>
+        
+        <div class="spotlight-actions">
+          {{ partial "registration-button.html" $nextEvent }}
+          <a href="/events/{{ $nextEvent.name | urlize }}/" class="learn-more">Learn More</a>
+        </div>
+      </div>
+      
+      <div class="spotlight-visual">
+        {{ partial "event-status.html" $nextEvent }}
+        <div class="event-distances">
+          <h4>Available Distances</h4>
+          <p>{{ $nextEvent.distance }}</p>
+        </div>
+        <div class="event-pricing-preview">
+          {{ if $nextEvent.early_bird_price }}
+          <div class="price-item">
+            <span class="price-label">Early Bird:</span>
+            <span class="price">{{ $nextEvent.early_bird_price }}</span>
+          </div>
+          {{ end }}
+          <div class="price-item">
+            <span class="price-label">Regular:</span>
+            <span class="price">{{ $nextEvent.regular_price }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Quick Links Section -->
+  <section class="quick-links">
+    <div class="section-header">
+      <h2>Quick Links</h2>
+      <p>Everything you need to get started with TCTRuns</p>
+    </div>
+    
+    <div class="quick-links-grid">
+      <div class="quick-link-card">
+        <div class="card-icon">🏃</div>
+        <h3>Find Your Race</h3>
+        <p>Browse our upcoming events and find the perfect race for your goals and schedule.</p>
+        <a href="/events" class="card-link">View Events →</a>
+      </div>
+      
+      <div class="quick-link-card">
+        <div class="card-icon">❓</div>
+        <h3>Get Answers</h3>
+        <p>New to racing? Check our comprehensive FAQ for everything you need to know.</p>
+        <a href="/faq" class="card-link">Read FAQ →</a>
+      </div>
+      
+      <div class="quick-link-card">
+        <div class="card-icon">📧</div>
+        <h3>Stay Updated</h3>
+        <p>Join our newsletter for race announcements, training tips, and community news.</p>
+        <a href="/newsletter" class="card-link">Subscribe →</a>
+      </div>
+      
+      <div class="quick-link-card">
+        <div class="card-icon">🤝</div>
+        <h3>Get Involved</h3>
+        <p>Volunteer at our events and become part of the TCTRuns community.</p>
+        <a href="/volunteer" class="card-link">Volunteer →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section class="community-highlight">
+    <div class="community-content">
+      <h2>Join the TCTRuns Community</h2>
+      <p>More than just races - we're building a supportive community of runners at every level. From first-time 5K participants to seasoned marathoners, everyone has a place here.</p>
+      
+      <div class="community-features">
+        <div class="feature">
+          <span class="feature-icon">🏆</span>
+          <span class="feature-text">All levels welcome</span>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">🎯</span>
+          <span class="feature-text">Professional timing</span>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">🎉</span>
+          <span class="feature-text">Post-race celebrations</span>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">💪</span>
+          <span class="feature-text">Training support</span>
+        </div>
+      </div>
+      
+      <div class="community-actions">
+        <a href="/about" class="about-link">Learn More About Us</a>
+        <a href="mailto:info@tctruns.com" class="contact-link">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Results (if available) -->
+  {{ $pastEvents := where $events "date" "lt" $now }}
+  {{ $recentPastEvents := first 3 (sort $pastEvents "date" "desc") }}
+  {{ if $recentPastEvents }}
+  <section class="recent-results">
+    <div class="section-header">
+      <h2>Recent Race Results</h2>
+      <p>Check out results and photos from our latest events</p>
+    </div>
+    
+    <div class="results-grid">
+      {{ range $recentPastEvents }}
+      <div class="result-card">
+        <h3>{{ .name }}</h3>
+        <div class="result-date">{{ dateFormat "January 2, 2006" .date }}</div>
+        <div class="result-actions">
+          {{ with .results_url }}
+          <a href="{{ . }}" target="_blank" class="results-btn">🏆 Results</a>
+          {{ end }}
+          {{ with .photos_url }}
+          <a href="{{ . }}" target="_blank" class="photos-btn">📸 Photos</a>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+</div>
 {{ end }}

@@ -1,0 +1,182 @@
+{{ define "main" }}
+{{ $eventSlug := .Params.slug | default (.File.BaseFileName) }}
+{{ $events := .Site.Data.events.events }}
+{{ $event := index (where $events "name" $eventSlug) 0 }}
+
+{{ if not $event }}
+  {{ range $events }}
+    {{ $slugified := .name | urlize }}
+    {{ if eq $slugified $eventSlug }}
+      {{ $event = . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if $event }}
+<article class="event-detail">
+  <!-- Event Header -->
+  <header class="event-header">
+    <div class="event-meta">
+      {{ partial "event-status.html" $event }}
+      <span class="event-distance">{{ $event.distance }}</span>
+    </div>
+    <h1 class="event-title">{{ $event.name }}</h1>
+    <div class="event-basics">
+      <div class="event-date-time">
+        <span class="date">📅 {{ dateFormat "Monday, January 2, 2006" $event.date }}</span>
+        <span class="time">🕐 {{ $event.time }}</span>
+      </div>
+      <div class="event-location">
+        <span class="location">📍 {{ $event.location }}</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Registration Section -->
+  <section class="event-registration">
+    {{ partial "registration-button.html" $event }}
+    
+    {{ if $event.early_bird_price }}
+    <div class="pricing">
+      <h3>Registration Pricing</h3>
+      {{ if $event.early_bird_price }}
+      <div class="price-option">
+        <span class="price-label">Early Bird:</span>
+        <span class="price">{{ $event.early_bird_price }}</span>
+      </div>
+      {{ end }}
+      <div class="price-option">
+        <span class="price-label">Regular:</span>
+        <span class="price">{{ $event.regular_price }}</span>
+      </div>
+    </div>
+    {{ end }}
+  </section>
+
+  <!-- Event Description -->
+  {{ with $event.description }}
+  <section class="event-description">
+    <h2>About This Event</h2>
+    <p>{{ . }}</p>
+  </section>
+  {{ end }}
+
+  <!-- Event Details Grid -->
+  <section class="event-details">
+    <div class="details-grid">
+      
+      <!-- Course Information -->
+      <div class="detail-card">
+        <h3>Course Information</h3>
+        <ul>
+          <li><strong>Distance:</strong> {{ $event.distance }}</li>
+          {{ with $event.course_map_url }}
+          <li><a href="{{ . }}" target="_blank" class="course-link">📄 View Course Map</a></li>
+          {{ end }}
+          {{ with $event.location }}
+          <li><strong>Location:</strong> {{ . }}</li>
+          {{ end }}
+        </ul>
+      </div>
+
+      <!-- Race Day Logistics -->
+      <div class="detail-card">
+        <h3>Race Day Information</h3>
+        <ul>
+          <li><strong>Start Time:</strong> {{ $event.time }}</li>
+          {{ with $event.packet_pickup }}
+          <li><strong>Packet Pickup:</strong> {{ . }}</li>
+          {{ end }}
+          {{ with $event.parking }}
+          <li><strong>Parking:</strong> {{ . }}</li>
+          {{ end }}
+        </ul>
+      </div>
+
+      <!-- Awards -->
+      {{ with $event.awards }}
+      <div class="detail-card">
+        <h3>Awards</h3>
+        <p>{{ . }}</p>
+      </div>
+      {{ end }}
+
+      <!-- Contact Information -->
+      <div class="detail-card">
+        <h3>Contact</h3>
+        <ul>
+          {{ with $event.contact_email }}
+          <li>📧 <a href="mailto:{{ . }}">{{ . }}</a></li>
+          {{ end }}
+          <li>📱 (555) 123-4567</li>
+          <li>🌐 <a href="/faq">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results and Photos (for past events) -->
+  {{ $now := now.Format "2006-01-02" }}
+  {{ if lt $event.date $now }}
+  <section class="event-results">
+    <h2>Race Results & Photos</h2>
+    <div class="results-links">
+      {{ with $event.results_url }}
+      <a href="{{ . }}" target="_blank" class="results-btn">🏆 View Results</a>
+      {{ end }}
+      {{ with $event.photos_url }}
+      <a href="{{ . }}" target="_blank" class="photos-btn">📸 View Photos</a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Sponsors -->
+  {{ with $event.sponsors }}
+  <section class="event-sponsors">
+    <h2>Event Sponsors</h2>
+    <div class="sponsors-list">
+      {{ range . }}
+      <div class="sponsor-item">{{ . }}</div>
+      {{ end }}
+    </div>
+    <p class="sponsor-cta">
+      <a href="/sponsors">Interested in sponsoring our events?</a>
+    </p>
+  </section>
+  {{ end }}
+
+  <!-- Call to Action -->
+  <section class="event-cta">
+    <div class="cta-card">
+      {{ if ge $event.date $now }}
+        {{ if eq $event.registration_status "open" }}
+        <h3>Ready to Race?</h3>
+        <p>Don't wait - register today and secure your spot!</p>
+        {{ partial "registration-button.html" $event }}
+        {{ else if eq $event.registration_status "coming-soon" }}
+        <h3>Registration Opening Soon!</h3>
+        <p>Check back soon for registration information.</p>
+        {{ else }}
+        <h3>Registration Closed</h3>
+        <p>Registration for this event has closed. Check out our other upcoming events!</p>
+        {{ end }}
+      {{ else }}
+        <h3>Event Complete</h3>
+        <p>Thanks to all participants! Check out our upcoming events.</p>
+      {{ end }}
+      <a href="/events" class="back-to-events">← Back to All Events</a>
+    </div>
+  </section>
+</article>
+
+{{ else }}
+<!-- Event not found -->
+<div class="event-not-found">
+  <h1>Event Not Found</h1>
+  <p>Sorry, we couldn't find the event you're looking for.</p>
+  <a href="/events" class="back-to-events">← Back to All Events</a>
+</div>
+{{ end }}
+
+{{ end }}

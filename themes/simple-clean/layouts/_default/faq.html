@@ -1,0 +1,195 @@
+{{ define "main" }}
+<div class="faq-container">
+  <div class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="page-description">
+        {{ . }}
+      </div>
+    {{ end }}
+  </div>
+
+  <!-- FAQ Search -->
+  <div class="faq-search">
+    <div class="search-container">
+      <input type="text" 
+             id="faq-search" 
+             placeholder="Search FAQs..." 
+             onkeyup="searchFAQs()">
+      <span class="search-icon">🔍</span>
+    </div>
+  </div>
+
+  <!-- Category Filter -->
+  <div class="faq-filters">
+    <h3>Browse by Category</h3>
+    <div class="filter-buttons">
+      <button class="filter-btn active" onclick="filterFAQs('all')">All</button>
+      {{ $categories := slice }}
+      {{ range .Site.Data.faqs.faqs }}
+        {{ $categories = $categories | append .category }}
+      {{ end }}
+      {{ range $categories | uniq }}
+      <button class="filter-btn" onclick="filterFAQs('{{ . | urlize }}')">{{ . }}</button>
+      {{ end }}
+    </div>
+  </div>
+
+  <!-- FAQ Content -->
+  <div class="faq-content">
+    {{ $categories := slice }}
+    {{ range .Site.Data.faqs.faqs }}
+      {{ $categories = $categories | append .category }}
+    {{ end }}
+    {{ range $categories | uniq }}
+    {{ $currentCategory := . }}
+    {{ $categoryFAQs := where $.Site.Data.faqs.faqs "category" $currentCategory }}
+    <section class="faq-category" data-category="{{ . | urlize }}">
+      <h2 class="category-title">
+        <span class="category-icon">
+          {{ if eq . "Registration" }}📝
+          {{ else if eq . "Race Day" }}🏃
+          {{ else if eq . "Course & Training" }}🗺️
+          {{ else if eq . "Results & Awards" }}🏆
+          {{ else if eq . "General" }}ℹ️
+          {{ else if eq . "Volunteering" }}🤝
+          {{ else }}📋{{ end }}
+        </span>
+        {{ . }}
+        <span class="category-count">({{ len $categoryFAQs }})</span>
+      </h2>
+      
+      <div class="faq-items">
+        {{ range sort $categoryFAQs "order" }}
+          {{ partial "faq-item.html" . }}
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+  </div>
+
+  <!-- FAQ Actions -->
+  <div class="faq-actions">
+    <div class="actions-grid">
+      <div class="action-card">
+        <h3>Still Have Questions?</h3>
+        <p>Can't find what you're looking for? We're here to help!</p>
+        <a href="mailto:info@tctruns.com" class="contact-btn">
+          📧 Email Us
+        </a>
+      </div>
+      
+      <div class="action-card">
+        <h3>Join Our Community</h3>
+        <p>Get the latest updates and connect with other runners.</p>
+        <a href="/newsletter" class="newsletter-btn">
+          📬 Newsletter Signup
+        </a>
+      </div>
+      
+      <div class="action-card">
+        <h3>Training Resources</h3>
+        <p>Check out our training tips and race preparation guides.</p>
+        <a href="/training" class="training-btn">
+          🏃 Training Tips
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Collapse/Expand All -->
+  <div class="faq-controls">
+    <button class="control-btn" onclick="expandAllFAQs()">Expand All</button>
+    <button class="control-btn" onclick="collapseAllFAQs()">Collapse All</button>
+  </div>
+</div>
+
+<script>
+// FAQ Search functionality
+function searchFAQs() {
+  const searchTerm = document.getElementById('faq-search').value.toLowerCase();
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.question-text').textContent.toLowerCase();
+    const answer = item.querySelector('.answer-content').textContent.toLowerCase();
+    
+    if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+      item.style.display = 'block';
+      // Highlight the item if it matches
+      if (searchTerm && searchTerm.length > 2) {
+        item.classList.add('search-match');
+      } else {
+        item.classList.remove('search-match');
+      }
+    } else {
+      item.style.display = 'none';
+      item.classList.remove('search-match');
+    }
+  });
+  
+  // Show/hide categories based on visible items
+  document.querySelectorAll('.faq-category').forEach(category => {
+    const visibleItems = category.querySelectorAll('.faq-item[style*="block"], .faq-item:not([style*="none"])');
+    if (visibleItems.length === 0) {
+      category.style.display = 'none';
+    } else {
+      category.style.display = 'block';
+    }
+  });
+}
+
+// Category filtering
+function filterFAQs(category) {
+  const faqCategories = document.querySelectorAll('.faq-category');
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  
+  // Update active button
+  filterButtons.forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  // Clear search
+  document.getElementById('faq-search').value = '';
+  
+  // Show/hide categories
+  faqCategories.forEach(cat => {
+    if (category === 'all' || cat.dataset.category === category) {
+      cat.style.display = 'block';
+      // Show all items in visible categories
+      cat.querySelectorAll('.faq-item').forEach(item => {
+        item.style.display = 'block';
+        item.classList.remove('search-match');
+      });
+    } else {
+      cat.style.display = 'none';
+    }
+  });
+}
+
+// Expand/Collapse all FAQs
+function expandAllFAQs() {
+  document.querySelectorAll('.faq-item').forEach(item => {
+    if (!item.classList.contains('active')) {
+      item.querySelector('.faq-question').click();
+    }
+  });
+}
+
+function collapseAllFAQs() {
+  document.querySelectorAll('.faq-item.active').forEach(item => {
+    item.querySelector('.faq-question').click();
+  });
+}
+
+// URL hash handling for direct linking to categories
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.location.hash) {
+    const targetCategory = window.location.hash.substring(1);
+    const categoryElement = document.querySelector(`[data-category="${targetCategory}"]`);
+    if (categoryElement) {
+      categoryElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+});
+</script>
+{{ end }}

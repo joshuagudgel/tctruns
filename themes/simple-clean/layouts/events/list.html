@@ -1,0 +1,115 @@
+{{ define "main" }}
+<div class="events-container">
+  <div class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="page-description">
+        {{ . }}
+      </div>
+    {{ end }}
+  </div>
+
+  <!-- Upcoming Events Section -->
+  {{ $now := now.Format "2006-01-02" }}
+  {{ $events := .Site.Data.events.events }}
+  {{ $upcomingEvents := where $events "date" "ge" $now }}
+  {{ $upcomingSorted := sort $upcomingEvents "date" }}
+  {{ $pastEvents := where $events "date" "lt" $now }}
+  {{ $pastSorted := sort $pastEvents "date" "desc" }}
+
+  {{ if $upcomingEvents }}
+  <section class="upcoming-events">
+    <h2>Upcoming Events</h2>
+    <div class="events-grid">
+      {{ range $upcomingSorted }}
+        {{ partial "event-card.html" . }}
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Event Filters -->
+  <div class="event-filters">
+    <h3>Filter Events</h3>
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All Events</button>
+      <button class="filter-btn" data-filter="5k">5K</button>
+      <button class="filter-btn" data-filter="10k">10K</button>
+      <button class="filter-btn" data-filter="half">Half Marathon</button>
+      <button class="filter-btn" data-filter="trail">Trail</button>
+    </div>
+  </div>
+
+  <!-- Past Events Section -->
+  {{ if $pastEvents }}
+  <section class="past-events">
+    <h2>Past Events</h2>
+    <p class="section-description">Check out photos and results from our previous races.</p>
+    <div class="events-grid past">
+      {{ range first 6 $pastSorted }}
+        {{ partial "event-card.html" . }}
+      {{ end }}
+    </div>
+    {{ if gt (len $pastSorted) 6 }}
+    <div class="load-more-container">
+      <button class="load-more-btn" onclick="loadMorePastEvents()">Load More Past Events</button>
+    </div>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  <!-- Registration Help -->
+  <section class="registration-help">
+    <div class="help-card">
+      <h3>Need Help with Registration?</h3>
+      <p>Having trouble registering or have questions about an event? We're here to help!</p>
+      <ul>
+        <li>📧 Email us at <a href="mailto:info@tctruns.com">info@tctruns.com</a></li>
+        <li>📱 Call us at (555) 123-4567</li>
+        <li>❓ Check out our <a href="/faq">Frequently Asked Questions</a></li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<script>
+// Event filtering functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const eventCards = document.querySelectorAll('.event-card');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      
+      const filter = this.dataset.filter;
+      
+      // Filter events
+      eventCards.forEach(card => {
+        if (filter === 'all') {
+          card.style.display = 'block';
+        } else {
+          const cardDistance = card.dataset.distance?.toLowerCase() || '';
+          if (cardDistance.includes(filter) || 
+              (filter === 'trail' && cardDistance.includes('trail')) ||
+              (filter === 'half' && cardDistance.includes('half'))) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        }
+      });
+    });
+  });
+});
+
+// Load more past events functionality
+function loadMorePastEvents() {
+  // This would typically make an AJAX request to load more events
+  // For now, we'll just show a message
+  alert('This feature would load more past events. Implementation depends on your backend setup.');
+}
+</script>
+{{ end }}

@@ -1,0 +1,75 @@
+<!-- Event Status Badge Partial -->
+{{ $now := now.Format "2006-01-02" }}
+{{ $isPast := lt .date $now }}
+{{ $isToday := eq .date $now }}
+{{ $futureDate := now.AddDate 0 1 0 }}
+{{ $isWithinMonth := and (ge .date $now) (le .date ($futureDate.Format "2006-01-02")) }}
+
+<div class="event-status-container">
+  {{ if $isPast }}
+    <!-- Past event -->
+    <span class="status-badge past">
+      <span class="badge-icon">✅</span>
+      <span class="badge-text">Complete</span>
+    </span>
+  {{ else if $isToday }}
+    <!-- Event is today -->
+    <span class="status-badge today">
+      <span class="badge-icon">🎯</span>
+      <span class="badge-text">Today!</span>
+    </span>
+  {{ else if $isWithinMonth }}
+    <!-- Coming soon (within a month) -->
+    <span class="status-badge soon">
+      <span class="badge-icon">⭐</span>
+      <span class="badge-text">Coming Soon</span>
+    </span>
+  {{ else }}
+    <!-- Future event -->
+    <span class="status-badge upcoming">
+      <span class="badge-icon">📅</span>
+      <span class="badge-text">Upcoming</span>
+    </span>
+  {{ end }}
+  
+  <!-- Registration status overlay -->
+  {{ if not $isPast }}
+  <span class="registration-status {{ .registration_status }}">
+    {{ if eq .registration_status "open" }}
+      <span class="reg-icon">🟢</span>
+      <span class="reg-text">Open</span>
+    {{ else if eq .registration_status "coming-soon" }}
+      <span class="reg-icon">🟡</span>
+      <span class="reg-text">Soon</span>
+    {{ else if eq .registration_status "closed" }}
+      <span class="reg-icon">🔴</span>
+      <span class="reg-text">Closed</span>
+    {{ end }}
+  </span>
+  {{ end }}
+  
+  <!-- Days until event counter -->
+  {{ if not $isPast }}
+  {{ $eventDate := time .date }}
+  {{ $daysDiff := div ($eventDate.Sub now).Hours 24 }}
+  {{ if le $daysDiff 30 }}
+  <div class="days-until">
+    {{ if $isToday }}
+      <span class="countdown-text">Today</span>
+    {{ else if eq (int $daysDiff) 1 }}
+      <span class="countdown-text">Tomorrow</span>
+    {{ else }}
+      <span class="countdown-number">{{ int $daysDiff }}</span>
+      <span class="countdown-text">days</span>
+    {{ end }}
+  </div>
+  {{ end }}
+  {{ end }}
+  
+  <!-- Featured event indicator -->
+  {{ if .featured }}
+  <div class="featured-indicator" title="Featured Event">
+    ⭐
+  </div>
+  {{ end }}
+</div>

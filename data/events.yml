@@ -1,0 +1,90 @@
+# Race Events Data
+# This file contains all race event information for the website
+# Add new events by copying the template below and updating the details
+
+events:
+  - name: "Spring 5K Challenge"
+    date: "2026-04-15"
+    time: "07:00 AM"
+    location: "Riverside Park, Downtown"
+    distance: "5K"
+    registration_url: "https://register.tctruns.com/spring-5k"
+    registration_status: "open"
+    early_bird_price: "$25"
+    regular_price: "$35"
+    description: "Join us for our signature spring race through the beautiful Riverside Park. Perfect for runners of all levels with a flat, fast course."
+    course_map_url: "https://tctruns.com/maps/spring-5k.pdf"
+    results_url: ""
+    photos_url: ""
+    awards: "Overall male/female winners, top 3 in each age group (under 18, 18-29, 30-39, 40-49, 50-59, 60+)"
+    packet_pickup: "Friday April 14th 5-7 PM at Fleet Feet Sports, Race day 6:30-7:45 AM at event site"
+    parking: "Free parking available at Riverside Park. Overflow parking at City Hall (2 blocks away)"
+    contact_email: "spring5k@tctruns.com"
+    featured: true
+    sponsors: ["Fleet Feet Sports", "Riverside Medical Center", "Local Bank"]
+
+  - name: "Summer Trail Series - Race 1"
+    date: "2026-06-01"
+    time: "08:00 AM"
+    location: "Mountain View Trails"
+    distance: "10K, 5K"
+    registration_url: "https://register.tctruns.com/summer-trail-1"
+    registration_status: "open"
+    early_bird_price: "$30"
+    regular_price: "$40"
+    description: "First race in our popular summer trail series. Challenging terrain with beautiful scenic views. Two distance options available."
+    course_map_url: "https://tctruns.com/maps/trail-10k.pdf"
+    results_url: ""
+    photos_url: ""
+    awards: "Overall winners, age group awards for both distances"
+    packet_pickup: "Friday May 31st 5-7 PM at Running Store, Race day 7:00-7:45 AM at trailhead"
+    parking: "Limited parking at trailhead. Shuttle service from overflow lot on Main Street"
+    contact_email: "trails@tctruns.com"
+    featured: true
+    sponsors: ["Mountain Gear", "Trail Mix Cafe"]
+
+  - name: "Fall Half Marathon"
+    date: "2026-10-12"
+    time: "07:30 AM"
+    location: "Historic Downtown Loop"
+    distance: "Half Marathon, 10K, 5K"
+    registration_url: "https://register.tctruns.com/fall-half"
+    registration_status: "coming-soon"
+    early_bird_price: "$45 (Half), $35 (10K), $25 (5K)"
+    regular_price: "$60 (Half), $45 (10K), $35 (5K)"
+    description: "Our premier fall event featuring three distance options through historic downtown. The half marathon course showcases the city's best architecture and landmarks."
+    course_map_url: ""
+    results_url: ""
+    photos_url: ""
+    awards: "Marathon medals for all finishers, overall and age group awards, team competition"
+    packet_pickup: "Friday Oct 11th 4-8 PM at Expo Center, Race day 6:00-7:15 AM at start line"
+    parking: "Multiple downtown parking garages available. Early arrival recommended"
+    contact_email: "fallhalf@tctruns.com"
+    featured: true
+    sponsors:
+      [
+        "Downtown Business Alliance",
+        "Sports Medicine Clinic",
+        "Healthy Eats Restaurant",
+      ]
+
+  # Past Event Example
+  - name: "Winter Wonderland 5K"
+    date: "2025-12-15"
+    time: "09:00 AM"
+    location: "Snow Valley Park"
+    distance: "5K"
+    registration_url: ""
+    registration_status: "closed"
+    early_bird_price: "$20"
+    regular_price: "$30"
+    description: "Our festive holiday race through snow-covered trails. Costumes encouraged!"
+    course_map_url: "https://tctruns.com/maps/winter-5k.pdf"
+    results_url: "https://tctruns.com/results/winter-2025"
+    photos_url: "https://tctruns.com/photos/winter-2025"
+    awards: "Holiday themed medals, best costume contest"
+    packet_pickup: "Day of race only, 8:00-8:45 AM"
+    parking: "Free parking at Snow Valley Park"
+    contact_email: "winter@tctruns.com"
+    featured: false
+    sponsors: ["Winter Sports Shop", "Hot Chocolate Co."]
