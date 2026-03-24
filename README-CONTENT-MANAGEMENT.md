@@ -1,19 +1,27 @@
 # Event Content Management Guide
 
-This guide explains how to manage race event information for the TCTRuns website.
+This guide explains the consolidated event management system for the TCTRuns website.
 
-## Two-File System
+## 📁 **New Event Structure**
 
-Each race event consists of **two files**:
+Each race event uses a **consolidated approach**:
 
-1. **Structured Data**: `/data/events.yml` - Basic event info, pricing, logistics
-2. **Rich Content**: `/content/event-details/{event-id}.md` - Detailed descriptions, course info, directions
+1. **Structured Data**: `/data/events.yml` - Event details, pricing, logistics
+2. **Rich Content**: `/content/events/{event-id}.md` - Detailed descriptions, course info
 
-## Adding a New Event
+## 🎯 **Benefits of This System**
 
-### Step 1: Add Basic Data
+✅ **Simplified Management**: One content file per event  
+✅ **Flexible Content**: Use full markdown formatting for descriptions  
+✅ **Clean Organization**: Structured data separate from narrative content  
+✅ **Easy Editing**: Edit both data and content in logical locations  
+✅ **Version Control**: Clean file history and change tracking
 
-Add event details to `data/events.yml`:
+## 📝 **Adding a New Event**
+
+### Step 1: Add Event Data
+
+Add structured event information to `data/events.yml`:
 
 ```yaml
 - id: "my-new-race" # Unique identifier (no spaces, lowercase)
@@ -51,12 +59,14 @@ Add event details to `data/events.yml`:
 
 ### Step 2: Create Rich Content
 
-Create `/content/event-details/my-new-race.md`:
+Create `/content/events/summer-trail-10k.md`:
 
 ```markdown
 ---
-title: "My New Race Details"
-event_id: "my-new-race" # Must match ID from events.yml
+title: "Summer Trail 10K"
+date: 2026-07-20
+event_id: "summer-trail-10k" # Must match ID in events.yml
+layout: "single"
 ---
 
 ## About This Race
@@ -130,13 +140,14 @@ Structure your content with consistent headings:
 
 ```
 data/
-  events.yml                         # All event structured data
+  events.yml                    # All structured event data
 
-content/event-details/              # Rich content per event
-  spring-5k-challenge.md
-  summer-trail-series-1.md
-  fall-half-marathon.md
-  winter-wonderland-5k.md
+content/events/                # Rich content per event
+  spring-5k-challenge.md       # Event ID: spring-5k-challenge
+  summer-trail-10k.md          # Event ID: summer-trail-10k
+  fall-half-marathon.md        # Event ID: fall-half-marathon
+  winter-wonderland-5k.md      # Event ID: winter-wonderland-5k
+  _index.md                    # Events section homepage
 ```
 
 ## Benefits of This System
