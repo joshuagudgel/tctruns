@@ -5,8 +5,6 @@
     <div class="hero-content">
       <h1 class="hero-title">{{ site.Title }}</h1>
       <p class="hero-subtitle">Running Events That Inspire, Challenge, and Unite Our Community</p>
-      {{ with .Content }}
-      {{ end }}
       
       <!-- Quick Stats -->
       {{ $events := .Site.Data.events.events }}
@@ -71,7 +69,7 @@
           <span class="time">🕐 {{ $nextEvent.time }}</span>
           <span class="location">📍 {{ $nextEvent.location }}</span>
         </div>
-        <p class="event-description">{{ $nextEvent.description | truncate 150 }}</p>
+        <p class="event-description">{{ $nextEvent.details.about_race | truncate 150 }}</p>
         
         <div class="spotlight-actions">
           {{ partial "registration-button.html" $nextEvent }}
@@ -83,18 +81,19 @@
         {{ partial "event-status.html" $nextEvent }}
         <div class="event-distances">
           <h4>Available Distances</h4>
-          <p>{{ $nextEvent.distance }}</p>
+          <p>{{ range $i, $dist := $nextEvent.distances }}{{ if $i }}, {{ end }}{{ $dist.distance }}{{ end }}</p>
         </div>
         <div class="event-pricing-preview">
-          {{ if $nextEvent.early_bird_price }}
+          {{ $primaryDistance := index $nextEvent.distances 0 }}
+          {{ if $primaryDistance.early_bird_price }}
           <div class="price-item">
             <span class="price-label">Early Bird:</span>
-            <span class="price">{{ $nextEvent.early_bird_price }}</span>
+            <span class="price">${{ $primaryDistance.early_bird_price }}</span>
           </div>
           {{ end }}
           <div class="price-item">
             <span class="price-label">Regular:</span>
-            <span class="price">{{ $nextEvent.regular_price }}</span>
+            <span class="price">${{ $primaryDistance.regular_price }}</span>
           </div>
         </div>
       </div>

@@ -5,62 +5,202 @@
 events:
   - name: "Spring 5K Challenge"
     date: "2026-04-15"
-    time: "07:00 AM"
     location: "Riverside Park, Downtown"
-    distance: "5K"
-    registration_url: "https://register.tctruns.com/spring-5k"
+
+    # === CARD DISPLAY DATA ===
+    primary_distance: "5K"
     registration_status: "open"
-    early_bird_price: "$25"
-    regular_price: "$35"
-    description: "Join us for our signature spring race through the beautiful Riverside Park. Perfect for runners of all levels with a flat, fast course."
-    course_map_url: "https://tctruns.com/maps/spring-5k.pdf"
-    results_url: ""
-    photos_url: ""
+    registration_url: "https://register.tctruns.com/spring-5k"
+    featured: true
+
+    # === DISTANCE/PRICING DETAILS ===
+    distances:
+      - distance: "5K"
+        early_bird_price: 25
+        regular_price: 35
+        race_day_price: 45
+        description: "Flat, fast course perfect for PRs and beginners"
+
+    # === EVENT LOGISTICS ===
+    time: "07:00 AM"
+    contact_email: "spring5k@tctruns.com"
     awards: "Overall male/female winners, top 3 in each age group (under 18, 18-29, 30-39, 40-49, 50-59, 60+)"
     packet_pickup: "Friday April 14th 5-7 PM at Fleet Feet Sports, Race day 6:30-7:45 AM at event site"
     parking: "Free parking available at Riverside Park. Overflow parking at City Hall (2 blocks away)"
-    contact_email: "spring5k@tctruns.com"
-    featured: true
+    course_map_url: "https://tctruns.com/maps/spring-5k.pdf"
+    results_url: ""
+    photos_url: ""
     sponsors: ["Fleet Feet Sports", "Riverside Medical Center", "Local Bank"]
+
+    # === DETAILED TEXT SECTIONS ===
+    details:
+      about_race: |
+        Join us for our signature spring race through the beautiful Riverside Park. Perfect for runners of all levels with a flat, fast course that's ideal for setting personal records or completing your first 5K.
+
+        This race marks the beginning of our racing season and attracts runners from across the region for its scenic route and welcoming atmosphere.
+
+      trail_notes: |
+        **Course Details:**
+        - Certified 5K distance (3.1 miles)
+        - Flat, paved surface throughout
+        - Single loop course starting and ending at Riverside Park
+        - Mile markers at 1, 2, and 3.1
+        - Water station at mile 1.5
+
+        **Surface:** 100% paved park roads
+        **Elevation:** Minimal elevation change, net flat
+        **Timing:** ChronoTrack chip timing for accurate results
+
+      registration_notes: |
+        **Registration Information:**
+        - Early bird pricing through March 31st
+        - Online registration closes April 13th at midnight
+        - Race day registration available starting 6:30 AM
+        - All participants receive a finisher medal
+
+        **Packet Pickup:**
+        - Advance pickup recommended to avoid race morning lines
+        - Packet pickup includes bib, timing chip, and race t-shirt (if ordered)
+
+      directions_notes: |
+        **Event Location:** Riverside Park, 456 River Drive, Downtown
+
+        **Parking:** 
+        - Primary: Riverside Park parking lot (100 spaces)
+        - Overflow: City Hall parking (2 blocks away, free on weekends)
+        - Street parking available on River Drive (arrive early)
+
+        **From Highway:** Take Exit 15, follow signs to downtown, turn right on River Drive
 
   - name: "Summer Trail Series - Race 1"
     date: "2026-06-01"
-    time: "08:00 AM"
     location: "Mountain View Trails"
-    distance: "10K, 5K"
-    registration_url: "https://register.tctruns.com/summer-trail-1"
+
+    # === CARD DISPLAY DATA ===
+    primary_distance: "10K"
     registration_status: "open"
-    early_bird_price: "$30"
-    regular_price: "$40"
-    description: "First race in our popular summer trail series. Challenging terrain with beautiful scenic views. Two distance options available."
-    course_map_url: "https://tctruns.com/maps/trail-10k.pdf"
-    results_url: ""
-    photos_url: ""
+    registration_url: "https://register.tctruns.com/summer-trail-1"
+    featured: true
+
+    # === DISTANCE/PRICING DETAILS ===
+    distances:
+      - distance: "10K"
+        early_bird_price: 30
+        regular_price: 40
+        race_day_price: 50
+        description: "Challenging trail route with scenic mountain views"
+      - distance: "5K"
+        early_bird_price: 25
+        regular_price: 35
+        race_day_price: 45
+        description: "Shorter option on the same beautiful trail system"
+
+    # === EVENT LOGISTICS ===
+    time: "08:00 AM"
+    contact_email: "trails@tctruns.com"
     awards: "Overall winners, age group awards for both distances"
     packet_pickup: "Friday May 31st 5-7 PM at Running Store, Race day 7:00-7:45 AM at trailhead"
     parking: "Limited parking at trailhead. Shuttle service from overflow lot on Main Street"
-    contact_email: "trails@tctruns.com"
-    featured: true
+    course_map_url: "https://tctruns.com/maps/trail-10k.pdf"
+    results_url: ""
+    photos_url: ""
     sponsors: ["Mountain Gear", "Trail Mix Cafe"]
+
+    # === DETAILED TEXT SECTIONS ===
+    details:
+      about_race: |
+        First race in our popular summer trail series. Challenging terrain with beautiful scenic views and two distance options to accommodate different fitness levels.
+
+        This series celebrates trail running in our local mountains and builds community among outdoor enthusiasts.
+
+      trail_notes: |
+        **10K Course:**
+        - Technical single-track trails with root and rock sections
+        - 800ft elevation gain over rolling terrain
+        - Creek crossing at mile 2.5 (may require wading in spring)
+        - Spectacular overlook at mile 4
+
+        **5K Course:**
+        - First 2.5 miles of the 10K route then return
+        - 400ft elevation gain, less technical sections
+        - Creek crossing and return
+
+        **Surface:** Natural trail surfaces, some rocky sections
+        **Aid Stations:** Water and electrolytes at miles 2.5 and 5 (10K only)
+
+      registration_notes: |
+        **What to Expect:**
+        - Trail running experience recommended for 10K
+        - 5K suitable for hiking/trail beginners
+        - All finishers receive a custom trail series medal
+        - Technical t-shirts available for $15 add-on
+
+        **Required Gear:**
+        - Trail running shoes strongly recommended
+        - Hydration pack or water bottles suggested
+        - Weather-appropriate clothing (mountain weather changes quickly)
+
+      support_crew_notes: |
+        **Spectator Access:**
+        - Start/Finish: Trailhead parking area
+        - Mile 2.5: Creek crossing (accessible via fire road)
+        - No vehicle access to overlook area
+
+        **Crew Guidelines:**
+        - Stay on marked trails only
+        - Yield to runners on single-track sections
+        - No littering - pack out all trash
+
+      directions_notes: |
+        **Trailhead Location:** Mountain View Trail System, Forest Service Road 142
+
+        **Directions:**
+        - From downtown: Take Highway 9 North for 15 miles
+        - Turn right on Forest Service Road 142
+        - Follow signs for 3 miles to trailhead parking
+
+        **Parking:**
+        - Trailhead lot: 50 spaces (arrive early)
+        - Overflow shuttle from Main Street Park & Ride
+        - Shuttle runs every 15 minutes starting at 6:30 AM
 
   - name: "Fall Half Marathon"
     date: "2026-10-12"
-    time: "07:30 AM"
     location: "Historic Downtown Loop"
-    distance: "Half Marathon, 10K, 5K"
-    registration_url: "https://register.tctruns.com/fall-half"
+
+    # === CARD DISPLAY DATA ===
+    primary_distance: "Half Marathon"
     registration_status: "coming-soon"
-    early_bird_price: "$45 (Half), $35 (10K), $25 (5K)"
-    regular_price: "$60 (Half), $45 (10K), $35 (5K)"
-    description: "Our premier fall event featuring three distance options through historic downtown. The half marathon course showcases the city's best architecture and landmarks."
-    course_map_url: ""
-    results_url: ""
-    photos_url: ""
+    registration_url: "https://register.tctruns.com/fall-half"
+    featured: true
+
+    # === DISTANCE/PRICING DETAILS ===
+    distances:
+      - distance: "Half Marathon"
+        early_bird_price: 45
+        regular_price: 60
+        race_day_price: 70
+        description: "13.1 mile scenic route through historic downtown"
+      - distance: "10K"
+        early_bird_price: 35
+        regular_price: 45
+        race_day_price: 55
+        description: "Perfect training distance through historic district"
+      - distance: "5K"
+        early_bird_price: 25
+        regular_price: 35
+        race_day_price: 45
+        description: "Family-friendly route with great city views"
+
+    # === EVENT LOGISTICS ===
+    time: "07:30 AM"
+    contact_email: "fallhalf@tctruns.com"
     awards: "Marathon medals for all finishers, overall and age group awards, team competition"
     packet_pickup: "Friday Oct 11th 4-8 PM at Expo Center, Race day 6:00-7:15 AM at start line"
     parking: "Multiple downtown parking garages available. Early arrival recommended"
-    contact_email: "fallhalf@tctruns.com"
-    featured: true
+    course_map_url: ""
+    results_url: ""
+    photos_url: ""
     sponsors:
       [
         "Downtown Business Alliance",
@@ -68,23 +208,144 @@ events:
         "Healthy Eats Restaurant",
       ]
 
+    # === DETAILED TEXT SECTIONS ===
+    details:
+      about_race: |
+        Our premier fall event featuring three distance options through historic downtown. The half marathon course showcases the city's best architecture and landmarks, while the shorter distances offer perfect introduction to downtown racing.
+
+        This race has been a community tradition for over 15 years, bringing together runners of all abilities to celebrate fitness and our beautiful historic city.
+
+      trail_notes: |
+        **Half Marathon Course:**
+        - Miles 1-3: Historic district with heritage building tours
+        - Miles 4-8: Riverfront greenway with scenic overlooks
+        - Miles 9-13.1: Return through downtown with crowd support
+
+        **10K Course:**
+        - Historic district and riverfront portions
+        - Finish at the same downtown location
+
+        **5K Course:**
+        - Best highlights of the downtown historic core
+        - Family-friendly with minimal elevation
+
+        **Surface:** 90% paved roads, 10% improved greenway trail
+        **Elevation:** Rolling hills with 400ft total gain (half marathon)
+        **Aid Stations:** Every 2 miles with water, sports drink, snacks
+
+      registration_notes: |
+        **Registration Information:**
+        - Early bird pricing through August 31st
+        - Online registration closes 48 hours before event
+        - Race day registration available with $10 surcharge
+        - Group discounts: 10+ people save 15%
+        - Military/First responder discount: 20% off with valid ID
+
+        **What's Included:**
+        - Finisher medal for all distances (unique designs by distance)
+        - Technical race t-shirt (optional $15 add-on)
+        - Post-race food and beverages
+        - Professional timing and results
+        - Expo with local vendors and race sponsors
+
+      drop_bag_notes: |
+        Drop bag service available for Half Marathon participants only.
+
+        **Drop Bag Details:**
+        - Check bags at Friday expo or race morning (no check after 7:15 AM)
+        - Bags transported to mile 8 riverfront aid station
+        - Retrieved at finish line after completion
+        - Maximum size: standard drawstring bag or small backpack
+        - Label clearly with bib number and name
+        - No valuables, electronics, or perishables
+        - Unclaimed bags held for 30 days then donated
+
+      support_crew_notes: |
+        **Spectator/Crew Access Points:**
+        - Start/Finish: Downtown Plaza (best viewing and parking)
+        - Mile 3: Historic Square (limited parking, public transit access)
+        - Mile 8: Riverfront Park (aid station access, food trucks)
+        - Mile 11: City Bridge (great photo opportunity)
+
+        **Crew Guidelines:**
+        - No crew aid between official aid stations per USATF rules
+        - Stay on sidewalks and designated spectator areas
+        - Follow volunteer and police directions for safety
+        - Cheering encouraged! Your support means everything to runners
+
+      directions_notes: |
+        **Event Location:** Downtown Plaza, 123 Main Street
+
+        **Driving Directions:**
+        - From North: I-95 South to Exit 42, follow Downtown signs
+        - From South: I-95 North to Exit 41, turn left on Main Street
+        - From West: Route 50 East directly to downtown area
+
+        **Parking Options:**
+        - City Garage A: $5 all day, 2 blocks from start (recommend pre-purchase)
+        - City Garage B: $3 all day, 4 blocks from start
+        - Street parking: Free on Sundays but limited (arrive by 6:30 AM)
+        - Remote lots with shuttle service available ($2, starts at 6:00 AM)
+
+        **Public Transit:** 
+        - Metro Blue Line to Downtown Station (1 block walk)
+        - Bus routes 15, 23, 42 stop at City Hall (2 blocks)
+        - Special race day schedule - check metro website
+
   # Past Event Example
   - name: "Winter Wonderland 5K"
     date: "2025-12-15"
-    time: "09:00 AM"
     location: "Snow Valley Park"
-    distance: "5K"
-    registration_url: ""
+
+    # === CARD DISPLAY DATA ===
+    primary_distance: "5K"
     registration_status: "closed"
-    early_bird_price: "$20"
-    regular_price: "$30"
-    description: "Our festive holiday race through snow-covered trails. Costumes encouraged!"
-    course_map_url: "https://tctruns.com/maps/winter-5k.pdf"
-    results_url: "https://tctruns.com/results/winter-2025"
-    photos_url: "https://tctruns.com/photos/winter-2025"
+    registration_url: ""
+    featured: false
+
+    # === DISTANCE/PRICING DETAILS ===
+    distances:
+      - distance: "5K"
+        early_bird_price: 20
+        regular_price: 30
+        race_day_price: 40
+        description: "Festive holiday trail run through winter wonderland"
+
+    # === EVENT LOGISTICS ===
+    time: "09:00 AM"
+    contact_email: "winter@tctruns.com"
     awards: "Holiday themed medals, best costume contest"
     packet_pickup: "Day of race only, 8:00-8:45 AM"
     parking: "Free parking at Snow Valley Park"
-    contact_email: "winter@tctruns.com"
-    featured: false
+    course_map_url: "https://tctruns.com/maps/winter-5k.pdf"
+    results_url: "https://tctruns.com/results/winter-2025"
+    photos_url: "https://tctruns.com/photos/winter-2025"
     sponsors: ["Winter Sports Shop", "Hot Chocolate Co."]
+
+    # === DETAILED TEXT SECTIONS ===
+    details:
+      about_race: |
+        Our festive holiday race through snow-covered trails. Costumes encouraged for this fun, community-focused event that celebrates the winter season!
+
+        This annual tradition brings families and runners together for a joyful conclusion to our racing year.
+
+      trail_notes: |
+        **Course Details:**
+        - 5K loop through Snow Valley Park trail system
+        - Mix of packed snow trails and plowed park roads
+        - Gentle rolling hills through winter woods
+        - Hot chocolate station at mile 2!
+
+        **Weather Considerations:**
+        - Dress in layers for winter conditions
+        - Traction aids recommended if icy
+        - Race held rain, snow, or shine (cancelled only for extreme conditions)
+
+      registration_notes: |
+        **Holiday Fun Features:**
+        - Costume contest with prizes for most creative
+        - Holiday-themed finisher medals
+        - Post-race hot chocolate and cookies
+        - Photos with Santa at the finish line
+
+        **This was a past event - check our current schedule for upcoming races!

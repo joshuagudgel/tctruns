@@ -18,7 +18,7 @@
   <header class="event-header">
     <div class="event-meta">
       {{ partial "event-status.html" $event }}
-      <span class="event-distance">{{ $event.distance }}</span>
+      <span class="event-distance">{{ range $i, $dist := $event.distances }}{{ if $i }}, {{ end }}{{ $dist.distance }}{{ end }}</span>
     </div>
     <h1 class="event-title">{{ $event.name }}</h1>
     <div class="event-basics">
@@ -36,59 +36,98 @@
   <section class="event-registration">
     {{ partial "registration-button.html" $event }}
     
-    {{ if $event.early_bird_price }}
+    {{ if $event.distances }}
     <div class="pricing">
       <h3>Registration Pricing</h3>
-      {{ if $event.early_bird_price }}
-      <div class="price-option">
-        <span class="price-label">Early Bird:</span>
-        <span class="price">{{ $event.early_bird_price }}</span>
-      </div>
-      {{ end }}
-      <div class="price-option">
-        <span class="price-label">Regular:</span>
-        <span class="price">{{ $event.regular_price }}</span>
+      <div class="pricing-table">
+        {{ range $event.distances }}
+        <div class="price-row">
+          <span class="distance-name">{{ .distance }}</span>
+          <div class="prices">
+            {{ if .early_bird_price }}
+            <span class="price early-bird">Early Bird: ${{ .early_bird_price }}</span>
+            {{ end }}
+            <span class="price regular">Regular: ${{ .regular_price }}</span>
+            {{ if .race_day_price }}
+            <span class="price race-day">Race Day: ${{ .race_day_price }}</span>
+            {{ end }}
+          </div>
+          {{ with .description }}
+          <p class="distance-description">{{ . }}</p>
+          {{ end }}
+        </div>
+        {{ end }}
       </div>
     </div>
     {{ end }}
   </section>
 
-  <!-- Event Description -->
-  {{ with $event.description }}
-  <section class="event-description">
+  <!-- About This Event -->
+  {{ with $event.details.about_race }}
+  <section class="event-about">
     <h2>About This Event</h2>
-    <p>{{ . }}</p>
+    <div class="about-content">{{ . | markdownify }}</div>
   </section>
   {{ end }}
 
-  <!-- Event Details Grid -->
+  <!-- Course Information -->
+  {{ with $event.details.trail_notes }}
+  <section class="event-course">
+    <h2>Course Information</h2>
+    <div class="course-content">{{ . | markdownify }}</div>
+  </section>
+  {{ end }}
+
+  <!-- Registration Details -->
+  {{ with $event.details.registration_notes }}
+  <section class="event-registration-details">
+    <h2>Registration Details</h2>
+    <div class="registration-content">{{ . | markdownify }}</div>
+  </section>
+  {{ end }}
+
+  <!-- Race Day Logistics -->
+  <section class="event-logistics">
+    <h2>Race Day Logistics</h2>
+    <div class="logistics-tabs">
+      
+      {{ with $event.details.directions_notes }}
+      <div class="logistics-section">
+        <h3>Directions & Parking</h3>
+        <div class="directions-content">{{ . | markdownify }}</div>
+      </div>
+      {{ end }}
+
+      {{ with $event.details.drop_bag_notes }}
+      <div class="logistics-section">
+        <h3>Drop Bag Service</h3>
+        <div class="drop-bag-content">{{ . | markdownify }}</div>
+      </div>
+      {{ end }}
+
+      {{ with $event.details.support_crew_notes }}
+      <div class="logistics-section">
+        <h3>Spectator Information</h3>
+        <div class="spectator-content">{{ . | markdownify }}</div>
+      </div>
+      {{ end }}
+
+    </div>
+  </section>
+
+  <!-- Quick Details Grid -->
   <section class="event-details">
     <div class="details-grid">
       
-      <!-- Course Information -->
+      <!-- Quick Facts -->
       <div class="detail-card">
-        <h3>Course Information</h3>
+        <h3>Quick Facts</h3>
         <ul>
-          <li><strong>Distance:</strong> {{ $event.distance }}</li>
+          <li><strong>Date:</strong> {{ dateFormat "Monday, Jan 2, 2006" $event.date }}</li>
+          <li><strong>Time:</strong> {{ $event.time }}</li>
+          <li><strong>Location:</strong> {{ $event.location }}</li>
           {{ with $event.course_map_url }}
           <li><a href="{{ . }}" target="_blank" class="course-link">📄 View Course Map</a></li>
-          {{ end }}
-          {{ with $event.location }}
-          <li><strong>Location:</strong> {{ . }}</li>
-          {{ end }}
-        </ul>
-      </div>
-
-      <!-- Race Day Logistics -->
-      <div class="detail-card">
-        <h3>Race Day Information</h3>
-        <ul>
-          <li><strong>Start Time:</strong> {{ $event.time }}</li>
-          {{ with $event.packet_pickup }}
-          <li><strong>Packet Pickup:</strong> {{ . }}</li>
-          {{ end }}
-          {{ with $event.parking }}
-          <li><strong>Parking:</strong> {{ . }}</li>
           {{ end }}
         </ul>
       </div>
@@ -108,7 +147,7 @@
           {{ with $event.contact_email }}
           <li>📧 <a href="mailto:{{ . }}">{{ . }}</a></li>
           {{ end }}
-          <li>📱 (555) 123-4567</li>
+          <li>📱 <a href="tel:+15551234567">(555) 123-4567</a></li>
           <li>🌐 <a href="/faq">FAQ</a></li>
         </ul>
       </div>

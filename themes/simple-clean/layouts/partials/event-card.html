@@ -1,10 +1,10 @@
-<!-- Event Card Partial -->
+<!-- Event Card Partial - Simplified -->
 {{ $now := now.Format "2006-01-02" }}
 {{ $isPast := lt .date $now }}
 {{ $eventSlug := .name | urlize }}
 
 <div class="event-card {{ if $isPast }}past{{ end }} {{ if .featured }}featured{{ end }}" 
-     data-distance="{{ .distance | lower }}">
+     data-distance="{{ .primary_distance | lower }}">
   
   {{ if .featured }}
   <div class="featured-badge">Featured</div>
@@ -26,24 +26,8 @@
     
     <div class="event-info">
       <div class="event-basics">
-        <div class="event-time">🕐 {{ .time }}</div>
         <div class="event-location">📍 {{ .location }}</div>
-        <div class="event-distance">🏃 {{ .distance }}</div>
-      </div>
-      
-      {{ with .description }}
-      <p class="event-description">
-        {{ . | truncate 120 }}
-      </p>
-      {{ end }}
-      
-      <div class="event-pricing">
-        {{ if .early_bird_price }}
-        <span class="price early-bird">{{ .early_bird_price }}</span>
-        {{ end }}
-        {{ if .regular_price }}
-        <span class="price regular">{{ .regular_price }}</span>
-        {{ end }}
+        <div class="event-distance">🏃 {{ .primary_distance }}{{ if gt (len .distances) 1 }} +{{ sub (len .distances) 1 }} more{{ end }}</div>
       </div>
     </div>
   </div>
@@ -67,14 +51,4 @@
     
     <a href="/events/{{ $eventSlug }}/" class="learn-more-link">Learn More →</a>
   </div>
-  
-  {{ if .sponsors }}
-  <div class="event-sponsors-preview">
-    <span class="sponsors-label">Sponsored by:</span>
-    <span class="sponsors-list">{{ delimit (first 2 .sponsors) ", " }}</span>
-    {{ if gt (len .sponsors) 2 }}
-    <span class="sponsors-more">+{{ sub (len .sponsors) 2 }} more</span>
-    {{ end }}
-  </div>
-  {{ end }}
 </div>
