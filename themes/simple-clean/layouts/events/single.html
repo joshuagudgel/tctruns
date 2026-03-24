@@ -44,9 +44,6 @@
         <div class="price-row">
           <div class="distance-info">
             <span class="distance-name">{{ .distance }}</span>
-            {{ with .description }}
-            <p class="distance-description">{{ . }}</p>
-            {{ end }}
           </div>
           <div class="price-info">
             {{ if .early_bird_price }}
@@ -90,27 +87,9 @@
           <a href="mailto:{{ . }}">{{ . }}</a>
         </div>
         {{ end }}
-        {{ with $event.course_map_url }}
-        <div class="logistics-item">
-          <strong>Course Map:</strong>
-          <a href="{{ . }}" target="_blank">📄 View Course Map</a>
-        </div>
-        {{ end }}
         {{ with $event.packet_pickup }}
         <div class="logistics-item">
           <strong>Packet Pickup:</strong>
-          {{ . }}
-        </div>
-        {{ end }}
-        {{ with $event.parking }}
-        <div class="logistics-item">
-          <strong>Parking:</strong>
-          {{ . }}
-        </div>
-        {{ end }}
-        {{ with $event.awards }}
-        <div class="logistics-item">
-          <strong>Awards:</strong>
           {{ . }}
         </div>
         {{ end }}

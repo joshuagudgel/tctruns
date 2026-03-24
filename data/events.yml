@@ -4,6 +4,50 @@
 # Add new events by copying the template below and creating a corresponding .md file
 
 events:
+  - id: "folsom-lake-falcon-crest-trail-run"
+    name: "Folsom Lake Falcon Crest Trail Run"
+    date: "2026-03-28"
+    location: "El Dorado Hills, CA 95762"
+
+    # Card display data
+    primary_distance: "Half Marathon"
+    registration_status: "closed"
+    registration_url: "404"
+    featured: true
+
+    # Indexing & filtering
+    year: 2026
+    season: "spring"
+    terrain: "trail"
+    tags: ["5K", "flat", "PR-friendly", "family", "park"]
+
+    # Distance & pricing
+    distances:
+      - distance: "5K"
+        regular_price: 55
+        race_day_price: 65
+        course_map_url: "https://tctruns.com/maps/folsom-5k.pdf"
+      - distance: "10K"
+        regular_price: 65
+        race_day_price: 70
+        course_map_url: "https://tctruns.com/maps/folsom-10k.pdf"
+      - distance: "8 miles"
+        regular_price: 70
+        race_day_price: 80
+        course_map_url: "https://tctruns.com/maps/folsom-8mile.pdf"
+      - distance: "Half Marathon"
+        regular_price: 85
+        race_day_price: 95
+        course_map_url: "https://tctruns.com/maps/folsom-half.pdf"
+
+    # Event logistics
+    time: "08:00 AM"
+    contact_email: "something@tctruns.com"
+    packet_pickup: "Friday April 14th 5-7 PM at Fleet Feet Sports, Race day 6:30-7:45 AM at event site"
+    results_url: ""
+    photos_url: ""
+    sponsors: ["Fleet Feet Sports", "Riverside Medical Center", "Local Bank"]
+
   - id: "spring-5k-challenge"
     name: "Spring 5K Challenge"
     date: "2026-04-15"
@@ -19,7 +63,6 @@ events:
     year: 2026
     season: "spring"
     terrain: "road"
-    difficulty: "beginner"
     tags: ["5K", "flat", "PR-friendly", "family", "park"]
 
     # Distance & pricing
@@ -28,15 +71,12 @@ events:
         early_bird_price: 25
         regular_price: 35
         race_day_price: 45
-        description: "Flat, fast course perfect for PRs and beginners"
+        course_map_url: "https://tctruns.com/maps/spring-5k.pdf"
 
     # Event logistics
     time: "07:00 AM"
     contact_email: "spring5k@tctruns.com"
-    awards: "Overall male/female winners, top 3 in each age group (under 18, 18-29, 30-39, 40-49, 50-59, 60+)"
     packet_pickup: "Friday April 14th 5-7 PM at Fleet Feet Sports, Race day 6:30-7:45 AM at event site"
-    parking: "Free parking available at Riverside Park. Overflow parking at City Hall (2 blocks away)"
-    course_map_url: "https://tctruns.com/maps/spring-5k.pdf"
     results_url: ""
     photos_url: ""
     sponsors: ["Fleet Feet Sports", "Riverside Medical Center", "Local Bank"]
@@ -56,7 +96,6 @@ events:
     year: 2026
     season: "summer"
     terrain: "trail"
-    difficulty: "intermediate"
     series: "Summer Trail Series"
     tags: ["10K", "5K", "trail", "technical", "mountains", "scenic"]
 
@@ -66,20 +105,17 @@ events:
         early_bird_price: 30
         regular_price: 40
         race_day_price: 50
-        description: "Challenging trail route with scenic mountain views"
+        course_map_url: "https://tctruns.com/maps/trail-10k.pdf"
       - distance: "5K"
         early_bird_price: 25
         regular_price: 35
         race_day_price: 45
-        description: "Shorter option on the same beautiful trail system"
+        course_map_url: "https://tctruns.com/maps/trail-5k.pdf"
 
     # Event logistics
     time: "08:00 AM"
     contact_email: "trails@tctruns.com"
-    awards: "Overall winners, age group awards for both distances"
     packet_pickup: "Friday May 31st 5-7 PM at Running Store, Race day 7:00-7:45 AM at trailhead"
-    parking: "Limited parking at trailhead. Shuttle service from overflow lot on Main Street"
-    course_map_url: "https://tctruns.com/maps/trail-10k.pdf"
     results_url: ""
     photos_url: ""
     sponsors: ["Mountain Gear", "Trail Mix Cafe"]
@@ -99,7 +135,6 @@ events:
     year: 2026
     season: "fall"
     terrain: "mixed"
-    difficulty: "intermediate"
     tags: ["half-marathon", "10K", "5K", "downtown", "historic", "premier"]
 
     # Distance & pricing
@@ -108,25 +143,22 @@ events:
         early_bird_price: 45
         regular_price: 60
         race_day_price: 70
-        description: "13.1 mile scenic route through historic downtown"
+        course_map_url: "https://tctruns.com/maps/fall-half.pdf"
       - distance: "10K"
         early_bird_price: 35
         regular_price: 45
         race_day_price: 55
-        description: "Perfect training distance through historic district"
+        course_map_url: "https://tctruns.com/maps/fall-10k.pdf"
       - distance: "5K"
         early_bird_price: 25
         regular_price: 35
         race_day_price: 45
-        description: "Family-friendly route with great city views"
+        course_map_url: "https://tctruns.com/maps/fall-5k.pdf"
 
     # Event logistics
     time: "07:30 AM"
     contact_email: "fallhalf@tctruns.com"
-    awards: "Marathon medals for all finishers, overall and age group awards, team competition"
     packet_pickup: "Friday Oct 11th 4-8 PM at Expo Center, Race day 6:00-7:15 AM at start line"
-    parking: "Multiple downtown parking garages available. Early arrival recommended"
-    course_map_url: ""
     results_url: ""
     photos_url: ""
     sponsors:
@@ -152,7 +184,6 @@ events:
     year: 2025
     season: "winter"
     terrain: "trail"
-    difficulty: "beginner"
     tags: ["5K", "holiday", "costume", "family", "fun", "snow"]
 
     # Distance & pricing
@@ -161,15 +192,12 @@ events:
         early_bird_price: 20
         regular_price: 30
         race_day_price: 40
-        description: "Festive holiday trail run through winter wonderland"
+        course_map_url: "https://tctruns.com/maps/winter-5k.pdf"
 
     # Event logistics
     time: "09:00 AM"
     contact_email: "winter@tctruns.com"
-    awards: "Holiday themed medals, best costume contest"
     packet_pickup: "Day of race only, 8:00-8:45 AM"
-    parking: "Free parking at Snow Valley Park"
-    course_map_url: "https://tctruns.com/maps/winter-5k.pdf"
     results_url: "https://tctruns.com/results/winter-2025"
     photos_url: "https://tctruns.com/photos/winter-2025"
     sponsors: ["Winter Sports Shop", "Hot Chocolate Co."]

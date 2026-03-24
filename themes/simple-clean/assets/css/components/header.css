@@ -1,4 +1,63 @@
-header {
-  border-bottom: 1px solid #222;
-  margin-bottom: 1rem;
+/* Transparent Overlay Header */
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: transparent;
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  /* Minimal padding - just slightly more than font height */
+  padding: 0.75rem 2rem;
+}
+
+.site-branding {
+  /* Slight indentation as requested */
+  margin-left: 0.5rem;
+}
+
+.site-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  /* White text to show over hero background */
+  color: white;
+  letter-spacing: 0.025em;
+  /* Add text shadow for better readability over background */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.site-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.site-title a:hover {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0.5rem 1rem;
+  }
+  
+  .site-branding {
+    margin-left: 0.25rem;
+  }
+  
+  .site-title {
+    font-size: 1.25rem;
+  }
 }

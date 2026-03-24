@@ -80,8 +80,8 @@ a:hover {
   color: white;
   text-align: center;
   padding: 4rem 2rem;
-  /* Full width and height styles */
-  min-height: 85vh;
+  /* Full width and height styles - can use full viewport since header overlays */
+  min-height: 100vh;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
@@ -1226,7 +1226,7 @@ a:hover {
 @media (max-width: 768px) {
   .hero {
     padding: 2rem 1rem;
-    min-height: 80vh; /* Slightly smaller on mobile */
+    min-height: 90vh; /* Can use more space since header overlays */
   }
   
   .hero-content {

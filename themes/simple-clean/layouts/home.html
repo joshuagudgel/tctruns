@@ -74,7 +74,7 @@
         {{ with $eventPage }}
         <p class="event-description">{{ .Summary | truncate 150 }}</p>
         {{ else }}
-        <p class="event-description">{{ with (index $nextEvent.distances 0).description }}{{ . }}{{ else }}Join us for this exciting event!{{ end }}</p>
+        <p class="event-description">Join us for this exciting event! Check out the event details.</p>
         {{ end }}
         
         <div class="spotlight-actions">
