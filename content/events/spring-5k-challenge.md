@@ -1,6 +1,8 @@
 ---
-title: "Spring 5K Challenge Details"
+title: "Spring 5K Challenge"
+date: 2026-04-15
 event_id: "spring-5k-challenge"
+layout: "single"
 ---
 
 ## About This Race

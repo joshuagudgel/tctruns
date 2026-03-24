@@ -1,6 +1,8 @@
 ---
-title: "Summer Trail Series - Race 1 Details"
+title: "Summer Trail Series - Race 1"
+date: 2026-06-01
 event_id: "summer-trail-series-1"
+layout: "single"
 ---
 
 ## About This Race
