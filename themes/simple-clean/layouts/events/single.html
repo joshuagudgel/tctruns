@@ -9,7 +9,7 @@
   <!-- Event Header -->
   <header class="event-header">
     <div class="event-meta">
-      {{ partial "event-status.html" $event }}
+      {{ partial "events/event-status.html" $event }}
       <div class="event-distances">
         {{ range $i, $dist := $event.distances }}
           {{ if $i }}, {{ end }}{{ $dist.distance }}
@@ -29,7 +29,7 @@
     
     <!-- Registration Button -->
     <div class="event-registration-cta">
-      {{ partial "registration-button.html" $event }}
+      {{ partial "events/registration-button.html" $event }}
     </div>
   </header>
 

@@ -22,7 +22,7 @@
     <h2>Upcoming Events</h2>
     <div class="events-grid">
       {{ range $upcomingSorted }}
-        {{ partial "event-card.html" . }}
+        {{ partial "events/event-card.html" . }}
       {{ end }}
     </div>
   </section>
@@ -47,7 +47,7 @@
     <p class="section-description">Check out photos and results from our previous races.</p>
     <div class="events-grid past">
       {{ range first 6 $pastSorted }}
-        {{ partial "event-card.html" . }}
+        {{ partial "events/event-card.html" . }}
       {{ end }}
     </div>
     {{ if gt (len $pastSorted) 6 }}

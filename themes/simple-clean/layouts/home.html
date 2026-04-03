@@ -47,7 +47,7 @@
     
     <div class="featured-events-grid">
       {{ range first 3 (sort $featuredEvents "date") }}
-        {{ partial "event-card.html" . }}
+        {{ partial "events/event-card.html" . }}
       {{ end }}
     </div>
     
@@ -78,13 +78,13 @@
         {{ end }}
         
         <div class="spotlight-actions">
-          {{ partial "registration-button.html" $nextEvent }}
+          {{ partial "events/registration-button.html" $nextEvent }}
           <a href="/events/{{ $nextEvent.id }}/" class="learn-more">Learn More</a>
         </div>
       </div>
       
       <div class="spotlight-visual">
-        {{ partial "event-status.html" $nextEvent }}
+        {{ partial "events/event-status.html" $nextEvent }}
         <div class="event-distances">
           <h4>Available Distances</h4>
           <p>{{ range $i, $dist := $nextEvent.distances }}{{ if $i }}, {{ end }}{{ $dist.distance }}{{ end }}</p>

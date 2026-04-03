@@ -10,7 +10,7 @@
   {{ end }}
   
   <div class="event-card-header">
-    {{ partial "event-status.html" . }}
+    {{ partial "events/event-status.html" . }}
     <h3 class="event-name">
       <a href="/events/{{ .id }}/">{{ .name }}</a>
     </h3>
@@ -45,7 +45,7 @@
         {{ end }}
       </div>
     {{ else }}
-      {{ partial "registration-button.html" . }}
+      {{ partial "events/registration-button.html" . }}
     {{ end }}
     
     <a href="/events/{{ .id }}/" class="learn-more-link">Learn More →</a>
