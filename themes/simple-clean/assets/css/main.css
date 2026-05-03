@@ -231,8 +231,8 @@ a:hover {
 }
 
 .event-card.featured {
-  border-color: var(--secondary-color);
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border-color: var(--color-green);
+  background: #fffbeb;
 }
 
 .event-card.past {
@@ -244,7 +244,7 @@ a:hover {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: var(--secondary-color);
+  background: var(--color-blue);
   color: white;
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
@@ -925,9 +925,11 @@ a:hover {
 
 .next-event-spotlight {
   margin: 4rem 0;
-  background: var(--gray-50);
+  background: linear-gradient(135deg, #eaedda 0%, #dde5c6 100%);
   border-radius: var(--border-radius);
   padding: 3rem 2rem;
+  border-left: 4px solid var(--color-green);
+  box-shadow: 0 2px 8px rgba(83, 93, 30, 0.12);
 }
 
 .spotlight-content {
@@ -1033,50 +1035,16 @@ a:hover {
 }
 
 /* ==========================================================================
-   Quick Links Grid
+   Featured Events Section
    ========================================================================== */
 
-.quick-links {
+.featured-events {
   margin: 4rem 0;
-}
-
-.quick-links-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.quick-link-card {
-  background: white;
-  border: 1px solid var(--gray-200);
+  background: linear-gradient(135deg, #eaedda 0%, #dde5c6 100%);
   border-radius: var(--border-radius);
-  padding: 2rem;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.quick-link-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary-color);
-}
-
-.card-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  display: block;
-}
-
-.quick-link-card h3 {
-  margin: 0 0 1rem;
-  font-size: 1.25rem;
-  color: var(--text-color);
-}
-
-.quick-link-card p {
-  margin: 0 0 1.5rem;
-  color: var(--text-muted);
-  line-height: 1.5;
+  padding: 3rem 2rem;
+  border-left: 4px solid var(--color-green);
+  box-shadow: 0 2px 8px rgba(83, 93, 30, 0.1);
 }
 
 /* ==========================================================================
@@ -1296,10 +1264,6 @@ a:hover {
   
   .filter-btn {
     white-space: nowrap;
-  }
-  
-  .quick-links-grid {
-    grid-template-columns: 1fr;
   }
   
   .actions-grid {

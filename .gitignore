@@ -73,3 +73,6 @@ coverage/
 # Build directories
 dist/
 build/
+
+# Agent files
+CLAUD.md

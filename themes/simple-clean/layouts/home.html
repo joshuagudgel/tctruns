@@ -36,28 +36,7 @@
     </div>
   </section>
 
-  <!-- Featured Events -->
-  {{ $featuredEvents := where $upcomingEvents "featured" true }}
-  {{ if $featuredEvents }}
-  <section class="featured-events">
-    <div class="section-header">
-      <h2>{{ .Site.Data.site.featured_events.title }}</h2>
-      <p>{{ .Site.Data.site.featured_events.subtitle }}</p>
-    </div>
-    
-    <div class="featured-events-grid">
-      {{ range first 3 (sort $featuredEvents "date") }}
-        {{ partial "events/event-card.html" . }}
-      {{ end }}
-    </div>
-    
-    <div class="section-footer">
-      <a href="/events" class="view-all-link">{{ .Site.Data.site.featured_events.view_all_text }}</a>
-    </div>
-  </section>
-  {{ end }}
-
-  <!-- Next Event Spotlight -->
+<!-- Next Event Spotlight -->
   {{ $nextEvent := index (sort $upcomingEvents "date") 0 }}
   {{ if $nextEvent }}
   <section class="next-event-spotlight">
@@ -107,42 +86,26 @@
   </section>
   {{ end }}
 
-  <!-- Quick Links Section -->
-  <section class="quick-links">
+  <!-- Featured Events -->
+  {{ $featuredEvents := where $upcomingEvents "featured" true }}
+  {{ if $featuredEvents }}
+  <section class="featured-events">
     <div class="section-header">
-      <h2>{{ .Site.Data.site.quick_links.title }}</h2>
-      <p>{{ .Site.Data.site.quick_links.subtitle }}</p>
+      <h2>{{ .Site.Data.site.featured_events.title }}</h2>
+      <p>{{ .Site.Data.site.featured_events.subtitle }}</p>
     </div>
     
-    <div class="quick-links-grid">
-      <div class="quick-link-card">
-        <div class="card-icon">🏃</div>
-        <h3>Find Your Race</h3>
-        <p>Browse our upcoming events and find the perfect race for your goals and schedule.</p>
-        <a href="/events" class="card-link">View Events →</a>
-      </div>
-      
-      <div class="quick-link-card">
-        <div class="card-icon">❓</div>
-        <h3>Get Answers</h3>
-        <p>New to racing? Check our comprehensive FAQ for everything you need to know.</p>
-        <a href="/faq" class="card-link">Read FAQ →</a>
-      </div>
-      
-      <div class="quick-link-card">
-        <div class="card-icon">📧</div>
-        <h3>Stay Updated</h3>
-        <p>Join our newsletter for race announcements, training tips, and community news.</p>
-        <a href="/newsletter" class="card-link">Subscribe →</a>
-      </div>
-      
-      <div class="quick-link-card">
-        <div class="card-icon">🤝</div>
-        <h3>Get Involved</h3>
-        <p>Volunteer at our events and become part of the TCTRuns community.</p>
-        <a href="/volunteer" class="card-link">Volunteer →</a>
-      </div>
+    <div class="featured-events-grid">
+      {{ range first 3 (sort $featuredEvents "date") }}
+        {{ partial "events/event-card.html" . }}
+      {{ end }}
+    </div>
+    
+    <div class="section-footer">
+      <a href="/events" class="view-all-link">{{ .Site.Data.site.featured_events.view_all_text }}</a>
     </div>
   </section>
+  {{ end }}
+
 </div>
 {{ end }}

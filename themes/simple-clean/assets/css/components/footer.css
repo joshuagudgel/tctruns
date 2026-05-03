@@ -1,6 +1,5 @@
 /* Footer with hero section matching background */
 .site-footer {
-  /* Same gradient background as hero section */
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
   color: white;
   margin-top: 3rem;
@@ -10,11 +9,61 @@
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 2rem;
+  padding: 3rem 2rem 2rem;
+}
+
+/* Quick Links Grid */
+.footer-quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  padding-bottom: 1rem;
+}
+
+.footer-link-item {
+  text-align: center;
+}
+
+.footer-link-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.footer-link-item h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.footer-link-item p {
+  margin: 0 0 0.75rem;
+  font-size: 0.8125rem;
+  opacity: 0.75;
+  line-height: 1.4;
+}
+
+.footer-link-item a {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link-item a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 1.5rem 0 1rem;
 }
 
 .footer-content {
-  /* Match header title indentation */
   margin-left: 0.5rem;
 }
 
@@ -27,11 +76,21 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .footer-container {
-    padding: 1.5rem 1rem;
+    padding: 2rem 1rem 1.5rem;
   }
-  
+
+  .footer-quick-links {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
   .footer-content {
-    /* Match header title mobile indentation */
     margin-left: 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-quick-links {
+    grid-template-columns: 1fr;
   }
 }

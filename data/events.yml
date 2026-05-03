@@ -4,6 +4,58 @@
 # Add new events by copying the template below and creating a corresponding .md file
 
 events:
+  - id: "magnolia-magic-river-trail-run"
+    name: "Magnolia Magic River Trail Run"
+    date: "2026-04-11"
+    location: "Magnolia Ranch Trail Head Coloma Rd, Pilot Hill, CA 95664"
+
+    # Card display data
+    primary_distance: "5K"
+    registration_status: "closed"
+    registration_url: "404"
+    featured: true
+
+    # Indexing & filtering
+    year: 2026
+    season: "spring"
+    terrain: "trail"
+    tags: ["5K", "flat", "PR-friendly", "family", "park"]
+
+    # Distance & pricing
+    distances:
+      - distance: "5K"
+        regular_price: 55
+        race_day_price: 65
+        course_map_url: "https://tctruns.com/maps/folsom-5k.pdf"
+      - distance: "7.4M"
+        regular_price: 65
+        race_day_price: 75
+        course_map_url: "https://tctruns.com/maps/folsom-5k.pdf"
+      - distance: "Half"
+        regular_price: 80
+        race_day_price: 90
+        course_map_url: "https://tctruns.com/maps/folsom-5k.pdf"
+      - distance: "30K"
+        regular_price: 90
+        race_day_price: 100
+        course_map_url: "https://tctruns.com/maps/folsom-5k.pdf"
+      - distance: "Marathon"
+        regular_price: 100
+        race_day_price: 110
+        course_map_url: "https://tctruns.com/maps/folsom-5k.pdf"
+      - distance: "50K"
+        regular_price: 120
+        race_day_price: 130
+        course_map_url: "https://tctruns.com/maps/folsom-5k.pdf"
+
+    # Event logistics
+    time: "08:00 AM"
+    contact_email: "something@tctruns.com"
+    packet_pickup: "Friday April 14th 5-7 PM at Fleet Feet Sports, Race day 6:30-7:45 AM at event site"
+    results_url: ""
+    photos_url: ""
+    sponsors: ["Fleet Feet Sports", "Riverside Medical Center", "Local Bank"]
+
   - id: "folsom-lake-falcon-crest-trail-run"
     name: "Folsom Lake Falcon Crest Trail Run"
     date: "2026-03-28"
