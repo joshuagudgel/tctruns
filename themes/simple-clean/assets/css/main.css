@@ -66,6 +66,23 @@ a:hover {
   text-decoration: underline;
 }
 
+.cta-primary:hover,
+.cta-secondary:hover,
+.registration-button:hover,
+.results-link:hover,
+.photos-link:hover,
+.contact-btn:hover,
+.newsletter-btn:hover,
+.training-btn:hover,
+.card-link:hover,
+.learn-more:hover,
+.about-link:hover,
+.contact-link:hover,
+.results-btn:hover,
+.photos-btn:hover {
+  text-decoration: none;
+}
+
 /* ==========================================================================
    Homepage Styles
    ========================================================================== */
@@ -168,7 +185,8 @@ a:hover {
 }
 
 .cta-primary:hover {
-  background: #d97706;
+  background: var(--accent-color);
+  color: white;
   transform: translateY(-1px);
   box-shadow: var(--shadow-lg);
 }
@@ -389,7 +407,7 @@ a:hover {
 }
 
 .learn-more-link:hover {
-  background: var(--gray-50);
+  background: #FFFBEB;
 }
 
 /* Event Sponsors Preview */
@@ -521,7 +539,7 @@ a:hover {
 }
 
 .registration-button.open:hover {
-  background: #059669;
+  background: var(--accent-color);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
