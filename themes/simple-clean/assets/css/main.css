@@ -226,10 +226,17 @@ a:hover {
    ========================================================================== */
 
 .events-grid, .featured-events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   margin: 2rem 0;
+}
+
+.events-grid .event-card,
+.featured-events-grid .event-card {
+  flex: 1 1 300px;
+  max-width: 380px;
 }
 
 .event-card {
@@ -1248,8 +1255,13 @@ a:hover {
   }
   
   .events-grid, .featured-events-grid {
-    grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .events-grid .event-card,
+  .featured-events-grid .event-card {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
   
   .event-card-details {
